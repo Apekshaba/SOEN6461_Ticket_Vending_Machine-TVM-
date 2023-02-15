@@ -6,7 +6,7 @@ Apekshaba Gohil: 40203058, Email ID: apekshabagohil.it@gmail.com
 
 Yashwanth: Email ID: g.yashwanth896@gmail.com
 
-Carlos: Email ID: carlosdan3@gmail.com
+Carlos Garcia: 40220038, Email ID: carlosdan3@gmail.com
 
 Ernesto Garsiya Melikhov: 40039957, Email ID: e_garsiy@encs.concordia.ca
 
@@ -20,7 +20,7 @@ Apekshaba Gohil
 
 Yashwanth
 
-Carlos
+Carlos Garcia
 
 Ernesto Garsiya Melikhov
 

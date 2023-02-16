@@ -1,0 +1,137 @@
+@startuml
+skinparam class {
+    BackgroundColor FloralWhite
+    BorderColor Black
+}
+
+class TVM {
+  +void displayUserInterface()
+}
+
+class User_Commuter {
+  -String id
+  -String name
+  +String getId()
+  +String getName()
+}
+
+class Station {
+  -String name
+  -String location
+  -String code
+  +String getName()
+  +String getLocation()
+  +String getCode()
+}
+
+class Ticket {
+  -int ticketNumber
+  -Date expirationDate
+  +int getTicketNumber()
+  +Date getExpirationDate()
+}
+
+class Fare {
+  -float amount
+  -String currency
+  +float getAmount()
+  +String getCurrency()
+}
+
+class TransitCard {
+  -String cardNumber
+  -float balance
+  +String getCardNumber()
+  +float getBalance()
+}
+
+class TicketDispenser {
+  +Ticket dispenseTicket()
+}
+
+class CardReader {
+  +void readCard(TransitCard card)
+}
+
+class Banknote {
+  -int denomination
+  +int getDenomination()
+}
+
+class UserInterface {
+  +void displayMessage(String message)
+  +String getUserInput()
+}
+
+class Transaction {
+  -int transactionId
+  -Date transactionDate
+  -TransitCard card
+  -Fare fare
+  -Payment payment
+  +int getTransactionId()
+  +Date getTransactionDate()
+  +TransitCard getCard()
+  +Fare getFare()
+  +Payment getPayment()
+}
+
+class Payment {
+  -float amount
+  -String currency
+  -String partner
+  +float getAmount()
+  +String getCurrency()
+  +String getPartner()
+}
+
+class Refund {
+  -float amount
+  -String currency
+  +float getAmount()
+  +String getCurrency()
+}
+
+class PaymentPartner {
+  +Refund refundPayment(Transaction transaction)
+  +boolean processPayment(Payment payment)
+}
+
+class Bank {
+  +void processTransaction(Transaction transaction)
+}
+
+class TicketCollector_Controller {
+  +void collectTicket(Ticket ticket, Station station)
+  +boolean validateCard(TransitCard card, Fare fare, Station station)
+}
+
+class StationTerminal {
+  -Station station
+  -TicketCollector_Controller ticketController
+  -CardReader cardReader
+  -TicketDispenser ticketDispenser
+  +void handleUserRequest(User_Commuter user)
+}
+
+TVM --> UserInterface
+User_Commuter -- Station
+Ticket <-- Fare
+TransitCard <-- Transaction
+TransitCard --> PaymentPartner
+TicketDispenser --> Ticket
+CardReader --> TransitCard
+Banknote <-- UserInterface
+Transaction --> TransitCard
+Transaction --> Payment
+PaymentPartner --> Transaction
+Bank --> Transaction
+TicketCollector_Controller --> Ticket
+TicketCollector_Controller --> Station
+TicketCollector_Controller --> TransitCard
+StationTerminal --> User_Commuter
+StationTerminal --> Station
+StationTerminal --> TicketCollector_Controller
+StationTerminal --> CardReader
+StationTerminal --> TicketDispenser
+@enduml

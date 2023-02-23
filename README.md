@@ -21,41 +21,40 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 1. Problem Domain Model.
 2. Description of Problem Domain Model.
 3. Interview Issues.
-4. Recording the findings from interviews and how they affected various software artefacts for our TVM iGo.
-5. conducted interviews in collaboration with the other team members.
+4. Conducting interviews in collaboration with the other team members.
 
 ## Apekshaba Gohil
 
 1. UML Activity Diagram.
 2. Description of UML Activity Diagram.
 3. Interview Questions.
-4. conducted interviews in collaboration with the other team members.
+4. Conducting interviews in collaboration with the other team members.
 
 ## Yashwanth
 
 1. Interview Questions.
 2. UML Use case diagram.
 3. Use Case description.
-4. conducted interviews in collaboration with the other team members.
+4. Conducting interviews in collaboration with the other team members.
 
 ## Carlos Garcia
 
-1. Worked on selection process of TVM for iGO Project as well as UML Class diagram.
+1. Work on selection process of TVM for iGO Project as well as UML Class diagram.
 2. Interview questions.
 3. UML Use case diagram.
 4. Use case description.
-5. conducted interviews in collaboration with the other team members.
+5. Conducting interviews in collaboration with the other team members.
 
 ## Ernesto Garsiya Melikhov
 
-1. Worked on UML Class Diagram as well as Mind map for deciding the required elements of the interview process.
+1. Work on UML Class Diagram as well as Mind map for deciding the required elements of the interview process.
 2. Write interview questions.
-3. Described iGo in detail.
-4. conducted interviews in collaboration with the other team members.
+3. Detailed Description of iGo.
+4. Conducting interviews in collaboration with the other team members.
 
 ## Amro Elbahrawy
 
-1. Described the type of TVM chosen, its properties, and the reasoning.
-2. Merged all the documents in the Latex Format.
+1. Describe the type of TVM chosen, its properties, and the reasoning.
+2. Merging all the documents in the Latex Format.
 3. Use Case Diagram
-4. conducted interviews in collaboration with the other team members.
+4. Conducting interviews in collaboration with the other team members.

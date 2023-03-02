@@ -8,7 +8,7 @@ Yashwanth: 40164633, Email ID: g.yashwanth896@gmail.com
 
 Carlos Garcia: 40220038, Email ID: carlosdan3@gmail.com
 
-Ernesto Garsiya Melikhov: 40039957, Email ID: e_garsiy@encs.concordia.ca
+Ernesto Garsiya Melikhov: 40039957, Email ID: osalseiro@gmail.com
 
 Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 

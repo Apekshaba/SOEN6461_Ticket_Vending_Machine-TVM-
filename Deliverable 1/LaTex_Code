@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[margin=1.00in]{geometry}
 \usepackage{hyperref}
 \usepackage{xurl}
@@ -10,7 +10,9 @@
 \usepackage{graphicx}
 \usepackage{ragged2e}
 \usepackage{algorithm}
+\usepackage[table]{xcolor}
 \usepackage{algpseudocode}
+\usepackage{tabularx}
 
 \begin{document}
 \begin{titlepage}
@@ -22,16 +24,16 @@
   \includegraphics[scale=0.8]{images/logo.png} \\[1in]
 \end{figure}
        \textbf{\large SOEN 6461: SOFTWARE DESIGN METHODOLOGIES}\\[0.3in]
-        \textbf{\large COURSE PROJECT - WINTER 2023} \\[1.5in]
+        \textbf{\large COURSE PROJECT - WINTER 2023} \\ [0.3in]
+        \textbf{\large Deliverable 1} \\[1.5in]
         \textbf{\large PROJECT REPORT}\\[0.2in]
         \textbf{\large iGO}\\[1in]
 
        \vspace{1.0cm}
 
-       \textbf{\large Submitted To: Prof. Pankaj Kamthan}\\ [1.8in]
+       \textbf{\large Submitted To: Prof. Pankaj Kamthan}\\ [1.3in]
         \textbf{By,}
         \begin{flushright}
-            \textbf{Yashwanth Gundlapally (40164633)}\\
             \textbf{Yashwanth Gundlapally (40164633)}\\
             \textbf{Pratik Gondaliya (40194062)}\\
             \textbf{Apekshaba Gohil (40203058)}\\
@@ -41,8 +43,33 @@
         \end{flushright}
        \vfill
 
-       \vspace{0.8cm}
+      % \vspace{0.2cm}
    \end{center}
 \end{titlepage}
 
+
+\tableofcontents
+\chapter{Problem 1}
+\section{Introduction}
+iGo is an electronic payment system that speeds up and streamlines transportation by eliminating the need for tickets, tokens, passes, and cash. It integrates with all local transit agencies in Canada, making it easy, convenient, and secure to pay for your journey. We have selected iGo for subways (metro) for that Customers can tap their card at metro stations and on buses (same system will work for buses as well) to move effortlessly between different transit agencies with just one electronic fare card. It is actively looking for ways, such self-service equipment and mobile device apps, to improve the consumer experience. To meet advancements in fare payment technologies, the system was created. In order to scan and authenticate the electronic tickets, it is envisaged that metro stations and buses will use smartphones or tablets with the iGO application installed on them. The official iGo app allows you to manage your card from anywhere at any time. An iGo Monthly Pass can be bought here: one of our fare vending machines or self-serve reload machines, which are available at all iGO metro stations, or 2) at one of the iGo app's available locations. Extremely High Performance, Minimal Latencies, High Traffic Management, Very Available, Secure, and Accurate are all requirements for the software system. Since it is outside the scope of this project, the price for the ticket purchase will not be covered by the requirements. There is, however, a new Payment option that can be extended for realisation. Support for different Languages is one of the Software's additional features.\\ [0.1in]
+\begin{center}
+\begin{tabular}{ |c|c|c|c| }
+
+ \hline
+ Category & Charges \\
+ \hline
+ Adult  & \$2.99 \\
+\hline
+ Senior, age 60+/Youth, ages 13-19  & \$1.99 \\
+ \hline
+ Monthly Pass  & Adult: \$60\\ & Senior/Youth: \$50  \\
+ \hline
+ 6 Month Pass   & Adult: \$300;\\ & Senior/Youth: \$240  \\
+ \hline
+ iGo Tickets &  One Ride: \$2.10 \\ & Two Ride: \$3.00 \\ & Day Pass: \$8.00 \\ & Weekly Pass: \$40 \\ & Weekend Pass: \$14 \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{document}
 \end{document}

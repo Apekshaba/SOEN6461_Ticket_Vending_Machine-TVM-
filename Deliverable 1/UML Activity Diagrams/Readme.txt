@@ -1,1 +1,1 @@
-Directory for UML Activity Diagrams Developed By whole team individually.
+Directory for UML Activity Diagrams Developed By each team member individually.

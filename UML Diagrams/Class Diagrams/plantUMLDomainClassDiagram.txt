@@ -1,0 +1,120 @@
+@startuml
+skinparam class {
+    BackgroundColor FloralWhite
+    BorderColor Black
+}
+
+class TVM {
+  +void displayUserInterface()
+}
+
+class Banknote_Receptacle {
+}
+
+class Registered_Commuter {
+  -String id
+  -String name
+}
+
+class Station {
+  -String name
+  -String location
+  -String code
+}
+
+
+
+class Ticket {
+  -int ticketNumber
+  -Date expirationDate
+}
+
+class Fare {
+  -float amount
+  -String currency
+}
+
+class TransitCard {
+  -String cardNumber
+  -float balance
+}
+
+class TicketDispenser {
+  +Ticket dispenseTicket()
+}
+
+class TransitCardReader {
+  +void readCard(TransitCard card)
+}
+
+class PaymentCardReader{
+
+}
+
+class Transaction {
+  -int transactionId
+  -Date transactionDate
+  -TransitCard card
+  -Fare fare
+  -Payment payment
+}
+
+class Payment {
+  -float amount
+  -String currency
+  -String partner
+}
+
+class Invoice{
+
+}
+
+class PaymentPartner {
+  +Refund refundPayment(Transaction transaction)
+  +boolean processPayment(Payment payment)
+}
+
+class Bank {
+  +void processTransaction(Transaction transaction)
+}
+
+class TicketCollector_Controller {
+  +void collectTicket(Ticket ticket, Station station)
+  +boolean validateCard(TransitCard card, Fare fare, Station station)
+}
+
+class StationTerminal {
+  -Station station
+  -TicketCollector_Controller ticketController
+  -TransitCardReader TransitCardReader
+  -TicketDispenser ticketDispenser
+}
+
+User <|-- Conductor
+User <|-- Registered_Commuter
+User <|-- Unregistered_Commuter
+Conductor --> StationTerminal
+TVM "1" *-- "1" Banknote_Receptacle
+TVM "1...*" o-- "1" Station: Belongs to
+Registered_Commuter "0...*" --> "0,1" StationTerminal
+Unregistered_Commuter "0...*" --> "0,1" StationTerminal
+Ticket "0...*" <-- "1" Fare
+TransitCard "0...*" <-- "1" Fare
+TicketDispenser "1" --> "0...*" Ticket
+TransitCardReader "1" --> "1" TransitCard
+TransitCardReader "1" --* "1" TVM
+PaymentCardReader "1" --* "1" TVM
+Transaction "0...*" -- "1" TransitCard: Belongs to >
+Transaction "1..*" - "1..*" Payment
+(Transaction, Payment) .. Invoice
+PaymentPartner --> "1..*" Transaction : Manages
+Bank --> "1..*" Transaction : Processes
+TicketCollector_Controller "1" --> "0...*" Ticket: Accepts >
+TicketCollector_Controller "0...*" --* "1" Station
+TicketCollector_Controller "1" --> "0...*" TransitCard
+Station "1" *-- "1...*"StationTerminal
+StationTerminal "1" --> "1...*" TransitCardReader
+TVM "1" *-- "1" TicketDispenser
+TransitCard "1" --o "1" Registered_Commuter
+
+@enduml

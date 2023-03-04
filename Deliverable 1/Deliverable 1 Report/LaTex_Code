@@ -65,9 +65,15 @@ iGo is an electronic payment system that speeds up and streamlines transportatio
 \chapter{Problem 3}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=180mm,height=150mm,scale=0.5]{images/Domain_Model_Newest.jpg}
+   \includegraphics[width=180mm,height=160mm,scale=0.5]{images/Domain_Model_Newest.png}
   \caption{Domain Model for iGO}
 \end{figure}
+This UML class diagram represents a domain model for a transportation system that involves commuters, stations, ticket vending machines (TVM), and financial transactions. \\\\
+The "user" package contains classes that represent different types of users, including registered and unregistered commuters, and conductors. \\\\
+The "business" package contains classes related to the transportation business, such as stations, station terminals, fares, and tickets. \\\\
+The "machine" package contains classes for the machines involved in the transportation system, such as the TVM, transit card readers, ticket dispensers, and banknote receptacles. \\\\
+The "finance" package contains classes related to financial transactions, including payments, invoices, contracts, and payment partners. \\\\
+The relationships between the classes are also shown in the diagram, such as the relationship between users and station terminals, and between TVMs and their components. The diagram also shows the relationships between the different classes involved in financial transactions. \\\\
 
 \chapter{Problem 4}
 \section{Use case model}
@@ -76,7 +82,6 @@ iGo is an electronic payment system that speeds up and streamlines transportatio
    \includegraphics[width=165mm,height=150mm,scale=0.5]{images/UCD_Newest.jpg}
   \caption{Use Case Model}
 \end{figure}
-
 \section{Sequence Diagram}
 \begin{figure}[h!]
   \centering

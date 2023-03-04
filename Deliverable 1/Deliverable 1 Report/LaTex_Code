@@ -341,6 +341,12 @@ All actors, use cases, and their relationships are represented in a use case mod
    \includegraphics[width=150mm,height=190mm,scale=0.5]{images/select_language.jpg}
   \caption{Select Language Activity Diagram}
 \end{figure}
+\section{Purchase Ticket Activity Diagram}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=190mm,scale=0.5]{images/Purchase_Ticket_Activity.jpeg}
+  \caption{Purchase Ticket Activity Diagram}
+\end{figure}
 \chapter{References}
 \begin{enumerate}
   \item \url{http://www.stm.info/en}

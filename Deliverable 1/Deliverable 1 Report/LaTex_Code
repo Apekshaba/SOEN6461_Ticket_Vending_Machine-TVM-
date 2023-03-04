@@ -133,13 +133,13 @@ Using the user-centric context of use framework, we are able to recognise and ca
    \includegraphics[width=180mm,height=150mm,scale=0.5]{images/Domain_Model_Newest.jpg}
   \caption{Domain Model for iGO}
 \end{figure}
-This UML class diagram represents a domain model for a transportation system that involves commuters, stations, ticket vending machines (TVM), and financial transactions.
+The domain model of iGo was structured in the form of a UML class diagram, where class names, attributes, and attribute visibility are shown for each class. \newline \newline Appropriate relationships are also shown between dependent classes in the same package and between classes in different packages, along with the cardinality of each relationship.
+The domain model is grouped into four main categories in the form of package diagrams: \textit{user}, \textit{business}, \textit{machine}, and \textit{finance}.
 \begin{enumerate}
-    \item The "user" package contains classes that represent different types of users, including registered and unregistered commuters, and conductors.
-    \item The "business" package contains classes related to the transportation business, such as stations, station terminals, fares, and tickets.
-    \item The "machine" package contains classes for the machines involved in the transportation system, such as the TVM, transit card readers, ticket dispensers, and banknote receptacles.
-    \item The "finance" package contains classes related to financial transactions, including payments, invoices, contracts, and payment partners.
-    \item The relationships between the classes are also shown in the diagram, such as the relationship between users and station terminals, and between TVMs and their components. The diagram also shows the relationships between the different classes involved in financial transactions.
+    \item The \textit{user} package encapsulates the users of iGo, including registered commuters, unregistered commuters, and subway conductors.
+    \item The \textit{business} package contains classes related to the transportation business, such as stations, station terminals, fares, and tickets.
+    \item The \textit{machine} package includes classes for the machinery used in all parts of iGo, including processing different payment options, reading tickets and cards, as well as recharging cards and purchasing tickets. Classes involved are TVM, transit card reader, payment card reader, ticket dispenser, banknote receptacle, and ticket collector.
+    \item The \textit{finance} package contains classes that manage the payment process in iGo when purchasing tickets and fares, as well as receipt management. These classes include including payment, invoice, contract, and payment partner.
 \end{enumerate}
 \chapter{Problem 3}
 \section{Mind Map of iGO}

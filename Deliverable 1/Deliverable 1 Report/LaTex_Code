@@ -62,33 +62,254 @@ iGo is an electronic payment system that speeds up and streamlines transportatio
 \hline
 \end{tabular}
 \end{center}
-\chapter{Problem 3}
+\section{Features of iGO}
+The selected TVM has the following features:
+\begin{enumerate}
+    \item Simple and intuitive user interface: Accessible without prior training, the TVM user interface is mostly self-explanatory. A few presumptions are also made on the knowledge and skill of the users. Users may have cognitive interference because of stress, and the UI helps users by supporting their tasks and reducing the likelihood of error. Physical buttons for selecting user options, a physical keyboard, and a plain colour display make up the user interface (UI). We suggest adding a touch-sensitive colour display, using this design as a model. This is done because programming touch sensitive displays allows for the creation of real-world user interfaces. Seniors' demands as well as those of people with physical and cognitive limitations, such as poor vision or trouble moving about, will be taken into consideration in our design. For wheelchair users, the keypad's height is fixed at 50 cm, and its inclination angle is nearly diagonal (45 degrees). For blind people who require voice help, tactile marking indented keypads are employed.
+    \item Ticket Type and Quantity: The chosen TVM can issue tickets or transit passes to end users and top off their smart cards for public transportation. The passes can be purchased in increments of five, ten, or more passes, or they can be purchased for a specific period of time, such as daily, weekly, or monthly. Language: The machine's user interface (UI) supports multiple languages, primarily English and French, in order to be used lawfully in Canada.
+    \item Payment options: Only Canadian dollars are used to display prices (CAD). Along with coins of one dollar, two dollars, and twenty-five cents, the machine also accepts Canadian dollar bills in denominations of five, ten, and twenty dollars. 2 Users may also use their credit or debit cards to make payments if necessary. Security: To prevent theft and vandalism, the machine's exterior body was built utilising sturdy materials. To stop fraud and ensure secure bank transactions, the TVM has built-in network security components.
+    \item Receipt: In addition to a paper-based receipt, there is also the option to receive one by email.
+    \item Location: Currently, for better vision, the TVM is situated either in the centre of the metro station or near an ingress/egress point with signs pointing at it. Also, our suggested TVMs will be placed close to crucial bus stops.
+\end{enumerate}
+\section{Context of Use(iGO)}
+A software system's context of use is a description of the circumstances in which it will be utilised in a typical working environment. These project-specific conditions relate to the users, requirements, physical surroundings, and settings in which the software system is employed. The public transportation industry is the context for the ticket selling machine.\\
+The application would be made specifically for mobile devices. The graphic below illustrates the context of usage model, where the centralized concept is the iGO TVM that is installed on mobile devices. The users use it to create tickets for public transit, such as buses and railways, among other modes. On the other hand, the software development team would be in charge of putting the concept into practice and creating the software that users would use on a daily basis.\\
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=180mm,height=160mm,scale=0.5]{images/Domain_Model_Newest.png}
+   \includegraphics[width=130mm,height=115mm,scale=0.5]{images/context_use.png}
+  \caption{Context Diagram for iGO}
+\end{figure}
+Using the user-centric context of use framework, we are able to recognise and categorise the variables that affect the usefulness and usability of iGo.\\
+\section{Framework of Context of use Model}
+\begin{enumerate}
+    \item User
+    \begin{itemize}
+     \item Cognitive Qualities: The software system must be made useful by every user, without the need for unique cognitive talents.
+     \item Education: The software system must be usable by users of various educational levels.
+     \item Physical Features: Users of any height shall have access to the device.The device must be built with adequate leg room and a viewing angle that is comfortable for a typical individual using a wheelchair.
+   \end{itemize}
+   \item User Task
+    \begin{itemize}
+     \item Criticality of task:
+        \begin{itemize}
+            \item High priority since the user might be rushing to get to his or her goal. The software system needs to respond quickly. The system should support solo ticket purchases and card renewals. The system accepts debit and credit card payments. The system offers a way to pay using cash. The program must provide the user with the right quantity of change.
+        \end{itemize}
+        \item Safety
+            \begin{itemize}
+                \item Personal information about a user shouldn't be compromised by the software system (i.e payment methods).
+            \end{itemize}
+        \item Complexity
+            \begin{itemize}
+                \item The software program should be simple and intuitive to operate.
+            \end{itemize}
+        \item System Usages Opinion
+            \begin{itemize}
+                \item The software system should be made available in regionally suitable languages.
+            \end{itemize}
+   \end{itemize}
+   \item User Role
+        \begin{itemize}
+                \item Admin
+                    \begin{itemize}
+                        \item Network Administrator
+                        \item Security Engineer
+                        \item Software Engineer
+                        \item Developer
+                    \end{itemize}
+                \item Registered
+                    \begin{itemize}
+                        \item -	User with a valid iGo card.
+                    \end{itemize}
+                \item New User Non-Registered
+                    \begin{itemize}
+                        \item - Users or less frequent travellers without an iGo card who are interested in purchasing tickets in accordance with their needs.
+                    \end{itemize}
+            \end{itemize}
+\end{enumerate}
+\chapter{Problem 2}
+\section{Domain Model for iGO}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=180mm,height=150mm,scale=0.5]{images/Domain_Model_Newest.jpg}
   \caption{Domain Model for iGO}
 \end{figure}
-This UML class diagram represents a domain model for a transportation system that involves commuters, stations, ticket vending machines (TVM), and financial transactions. \\\\
-The "user" package contains classes that represent different types of users, including registered and unregistered commuters, and conductors. \\\\
-The "business" package contains classes related to the transportation business, such as stations, station terminals, fares, and tickets. \\\\
-The "machine" package contains classes for the machines involved in the transportation system, such as the TVM, transit card readers, ticket dispensers, and banknote receptacles. \\\\
-The "finance" package contains classes related to financial transactions, including payments, invoices, contracts, and payment partners. \\\\
-The relationships between the classes are also shown in the diagram, such as the relationship between users and station terminals, and between TVMs and their components. The diagram also shows the relationships between the different classes involved in financial transactions. \\\\
-
+This UML class diagram represents a domain model for a transportation system that involves commuters, stations, ticket vending machines (TVM), and financial transactions.
+\begin{enumerate}
+    \item The "user" package contains classes that represent different types of users, including registered and unregistered commuters, and conductors.
+    \item The "business" package contains classes related to the transportation business, such as stations, station terminals, fares, and tickets.
+    \item The "machine" package contains classes for the machines involved in the transportation system, such as the TVM, transit card readers, ticket dispensers, and banknote receptacles.
+    \item The "finance" package contains classes related to financial transactions, including payments, invoices, contracts, and payment partners.
+    \item The relationships between the classes are also shown in the diagram, such as the relationship between users and station terminals, and between TVMs and their components. The diagram also shows the relationships between the different classes involved in financial transactions.
+\end{enumerate}
+\chapter{Problem 3}
+\section{Mind Map of iGO}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=155mm,height=135mm,scale=0.5]{images/mindmap.png}
+  \caption{Mind map of iGO}
+\end{figure}
+\section{Interviews}
+In software engineering and human-computer interface, interviews are frequently employed. They serve as a means of gathering needs, learning more about the software system's users, learning about the users' positive and bad experiences with the system, etc.\\\\
+Before creating the various software artefacts for our project, we conducted interviews with people. We tried to retain a fairly diversified sample of respondents by selecting individuals who are: From a range of ages and backgrounds and include both technical users and non-technical users.\\\\
+Since TVM is a technological software system, we believed it would be suitable to interview individuals with technical backgrounds, particularly those with backgrounds in software engineering, computer science, and engineering.\\\\
+With the aid of Google Form, a digital interviewing tool, as well as in-person conversations, we conducted our interviews. A healthy blend of open-ended and closed-ended questions was used. For our interviews, we recorded a combination of audio and video. To refine the list of questions for the actual interviews, a pilot interview was done prior to the actual interviews.\\\\
+For Google form which we used for interviews - \href{http://www.overleaf.com}{Google Form Link}
+\section{Sample Interview Questions}
+\begin{enumerate}
+    \item Open-ended questions:
+    \begin{itemize}
+        \item What can be improved if you have the opportunity to suggest changes to the current system? (Please elaborate)
+        \item How long do you typically wait in line before purchasing tickets?
+    \end{itemize}
+    \item Closed-ended inquiries
+    \begin{itemize}
+        \item Would you prefer the TVMs to be placed somewhere other than metro stations?
+        \item Would you prefer an online system for topping out your Opus card?
+        \item In order to keep track of and manage your costs, would you prefer to get payment receipts through email?
+    \end{itemize}
+\end{enumerate}
+\section{Conclusions Obtained from the Interviews}
+\begin{enumerate}
+    \item TVM machines ought to be placed elsewhere besides metro stations, such as in the city's core and next to busy bus stops. It would be more convenient for passengers to buy tickets and recharge their metro cards while they are out and about in the city rather than needing to go directly to metro stations. So, when choosing a place for our TVMs, we paid attention to this topic.
+    \item Instead of just providing paper receipts, there should be an electronic receipt as well. Our participants stated that occasionally they misplace paper tickets, which causes them problems later on, especially for those who need to get their employers to pay them. Because of this, they would appreciate an email receipt as well.
+    \item More interviewees concurred that an internet-based system for card recharging would make things simpler. They have the choice to recharge the card without leaving the house thanks to this. This issue has also been resolved. Our domain model contains solution for this, and our use case diagram also contains a use case specifically for it.
+\end{enumerate}
 \chapter{Problem 4}
 \section{Use case model}
+All actors, use cases, and their relationships are represented in a use case model for a software system. These are two examples of use case models, one in the form of a UML use case diagram and the other in the form of a UML activity diagram, along with positive use case descriptions.\\
+\begin{enumerate}
+    \item Select Language
+        \begin{itemize}
+            \item Name: Select Language
+            \item Actors: Commuter
+            \item Description: The commuter picks either French or English from two available languages.
+            \item Trigger: The commuter initiates a session
+            \item Pre-Condition: The commuter initiated a session
+            \item Post-Condition: The commuter's chosen language is the machine's default language.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item The commuter chooses a language.
+                    \item The commuter might decide to recharge card.
+                    \item The commuter’s card is recharged.
+                    \item The transaction is completed.
+                    \item An invoice is produced.
+                \end{itemize}
+            \item Exception Flow: The commuter might cancel the session
+        \end{itemize}
+        \item Recharge Card
+        \begin{itemize}
+            \item Name: Recharge Card
+            \item Actors: Commuter
+            \item Description: The commuter tops off their metro card that they previously purchased.
+            \item Trigger: choosing the screen's metro card recharge option.
+            \item Pre-Condition: A session was started, and the commuter choose a language.
+            \item Post-Condition: The commuter card is topped off.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item The commuter selects a recharge option.
+                    \item The screen with the payment options is displayed on iGo TVM.
+                \end{itemize}
+            \item Exception Flow: The commuter might cancel the session.
+        \end{itemize}
+        \item Purchase Ticket
+        \begin{itemize}
+            \item Name: Purchase Ticket
+            \item Actors: Commuter
+            \item Description: The commuter purchases a prepaid ticket from iGo TVM.
+            \item Trigger: Selecting the purchase ticket option on screen.
+            \item Pre-Condition: The commuter initiated a session and selected a language.
+            \item Post-Condition: The commuter picked a ticket option and is redirected to the payment screen.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item The commuter selects a ticket option.
+                    \item iGo TVM is redirected to the payment option screen.
+                \end{itemize}
+            \item Exception Flow: The commuter cancels the session.
+        \end{itemize}
+        \item Print Ticket
+        \begin{itemize}
+            \item Name: Print ticket
+            \item Actors: iGo TVM
+            \item Description: iGo TVM prints a ticket.
+            \item Trigger: Successful payment.
+            \item Pre-Condition: The commuter selects an option and paid the exact correct amount.
+            \item Post-Condition: The ticket will be printed.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item The commuter pays for the selected ticket.
+                    \item iGo TVM prints the ticket.
+                \end{itemize}
+            \item Exception Flow: Payment Rejection.
+        \end{itemize}
+        \item Payment
+        \begin{itemize}
+            \item Name: Payment
+            \item Actors: Commuter
+            \item Description: The commuter pays for their selection.
+            \item Trigger: Selecting a specific recharge card or purchase ticket option.
+            \item Pre-Condition: Choose a ticket or a card recharge menu.
+            \item Post-Condition: When a payment is made, the iGo TVM switches to the receipt preference screen.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item iGo TVM shows available payment methods (cash or credit).
+                    \item The commuter selects a method of payment.
+                    \item If it's cash, iGo TVM gives back the right change.
+                    \item If using a card, the bank verifies the payment.
+                    \item iGo TVM reroutes to the page for receipt preferences.
+                \end{itemize}
+            \item Exception Flow: Rejected payment
+        \end{itemize}
+        \item Receipt Preference
+        \begin{itemize}
+            \item Name: Provide Receipt Preference
+            \item Actors: Commuter
+            \item Description: The commuter made a choice between an email receipt and a printed receipt.
+            \item Trigger: Successful payment
+            \item Pre-Condition: The payment is successful, and the correct amount of change is returned if any.
+            \item Post-Condition: The commuter receive their receipt as per their preference.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item The option for receipt preferences is shown on iGo TVM.
+                    \item The commuter might choose to receive it on print or via email.
+                    \item The commuter is asked for their e-mail if it's by email.
+                \end{itemize}
+            \item Exception flow: Invalid Email
+        \end{itemize}
+        \item Receipt Generation
+        \begin{itemize}
+            \item Name: Generate Receipt
+            \item Actors: iGo TVM
+            \item Description: A receipt is produced after a successful transaction.
+            \item Trigger: The commuter specified their preferred receipt type.
+            \item Pre-Condition: The preferred payment and receiving status is successful.
+            \item Post-Condition: The commuter receives a receipt in the preferred format.
+            \item Normal Flow:
+                \begin{itemize}
+                    \item The commuter chooses their preferred receipt.
+                    \item . Depending on the commuter's preferences, iGo TVM sends or prints the receipt.
+                \end{itemize}
+        \end{itemize}
+\end{enumerate}
+\newpage
+\section{Use Case Diagram}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=165mm,height=150mm,scale=0.5]{images/UCD_Newest.jpg}
+   \includegraphics[width=180mm,height=210mm,scale=0.5]{images/use_case.png}
   \caption{Use Case Model}
 \end{figure}
-\section{Sequence Diagram}
+\chapter{Problem 5}
+\section{Activity Diagram for iGO}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=210mm,scale=0.5]{images/Recharge Card Main Flow Draft.jpg}
-  \caption{Sequence Diagram for Recharge card}
+   \includegraphics[width=150mm,height=153mm,scale=0.5]{images/Activity_2.png}
+  \caption{Activity Diagram for iGO}
 \end{figure}
-
+\section{Recharge Card Activity Diagram}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=200mm,scale=0.5]{images/Recharge Card Main Flow Draft.jpg}
+  \caption{Activity Diagram for Recharge card}
+\end{figure}
 \chapter{References}
 \begin{enumerate}
   \item \url{http://www.stm.info/en}
@@ -98,87 +319,87 @@ The relationships between the classes are also shown in the diagram, such as the
   \item PANKAJ KAMTHAN (2023) “Introduction To Use Case Modeling” - Section 11, 12.
   \item PANKAJ KAMTHAN (2023) “Negative Use Case Modeling”  - Section 8
   \item \url{https://www.lucidchart.com/pages/uml-activity-diagram}
-  \item Carte OPUS. To obtain your photo OPUS card. 2019. \url{http://www.carteopus.info/}.
+  \item Carte OPUS. To obtain your photo OPUS card. 2023. \url{http://www.carteopus.info/}.
 \end{enumerate}
 \chapter{Appendix}
 \textbf{\LARGE{Interview Questions}}\\\\
-\textbf{Interview 1:}\\\\
+\section{Interview-1}
 Date – 27-02-2023, 10:36 PM\\
-Interviewer: Pratik Gondaliya (4019 4062)\\
-Interviewee: Yash Radadiya (Email ID: Yash.Radadiya1088@gmail.com)\\\\
-Interviewer:  Is there any security concerns which you are facing right now. While using existing TVM (Metro)?\\
-Interviewee : I’m a Software Engineer at CN, Montreal. While traveling via Metro I have observed that nowadays homeless people sometime really create nuisance and security threats to traveller. So if you can also design some parameter using which we can tackle and denied access to such people. It would be helpful.\\\\
-Interviewer:  Do you think it would help if the TVM's are placed outside of the Metro Stations ?  Explained Why?\\
-Interviewee : It would, but only during Summer. I think there are some people that only use public transport rarely but have to stand in queues to obtain the ticket. It would be great if you could book ticket online and obtain the ticket from TVM. This would save lots of time.\\\\
-Interviewer:  So is there any other problem that you are facing with the current ?\\
-Interviewee : Yes, sometime while purchasing ticket through offline mode using TVM I have observed that payment sometime get delayed and I have to wait for just getting receipt.\\\\
-Interviewer:  Would you like to buy ticket using online mode (through App or website) or offline mode via Physical TVM (iGo)?\\
-Interviewee : Yes, through online mode. It will be really convenience to me. It also saves lots of time.\\\\
-Interviewer:  What do you like about the public transportation system.?\\
-Interviewee : I think it’s Good and fast if you are familiar with it. However, the machine is not that user friendly because of the first time when I have tried to use it. I could have not figure out a lot of things until one of my friends actually shoed me what to do. I think it can be made more user friendly and some icons can be removed pr add icons that shows instructions on how to use the system.\\\\
-\textbf{Interview 2:}\\\\
+\textbf{Interviewer:} Pratik Gondaliya (4019 4062)\\
+\textbf{Interviewee:} Yash Radadiya (Email ID: Yash.Radadiya1088@gmail.com)\\\\
+\textbf{Interviewer:}  Is there any security concerns which you are facing right now. While using existing TVM (Metro)?\\
+\textbf{Interviewee:} I’m a Software Engineer at CN, Montreal. While traveling via Metro I have observed that nowadays homeless people sometime really create nuisance and security threats to traveller. So if you can also design some parameter using which we can tackle and denied access to such people. It would be helpful.\\\\
+\textbf{Interviewer:}  Do you think it would help if the TVM's are placed outside of the Metro Stations ?  Explained Why?\\
+\textbf{Interviewee:} It would, but only during Summer. I think there are some people that only use public transport rarely but have to stand in queues to obtain the ticket. It would be great if you could book ticket online and obtain the ticket from TVM. This would save lots of time.\\\\
+\textbf{Interviewer:}  So is there any other problem that you are facing with the current ?\\
+\textbf{Interviewee:} Yes, sometime while purchasing ticket through offline mode using TVM I have observed that payment sometime get delayed and I have to wait for just getting receipt.\\\\
+\textbf{Interviewer:}  Would you like to buy ticket using online mode (through App or website) or offline mode via Physical TVM (iGo)?\\
+\textbf{Interviewee:} Yes, through online mode. It will be really convenience to me. It also saves lots of time.\\\\
+\textbf{Interviewer:}  What do you like about the public transportation system.?\\
+\textbf{Interviewee:} I think it’s Good and fast if you are familiar with it. However, the machine is not that user friendly because of the first time when I have tried to use it. I could have not figure out a lot of things until one of my friends actually shoed me what to do. I think it can be made more user friendly and some icons can be removed pr add icons that shows instructions on how to use the system.
+\section{Interview-2}
 Date – 01-03-2023, 07:54 PM \\
-Interviewer: Yashwanth Gundlapally (4016 4633)\\
-Interviewee: Adhik Chandran (Email ID: adhikchandran@gmail.com)\\\\
-Interviewer:  What kind of interface do you prefer at the TVM? (Button operated, Touch screen, Both)\\
-Interviewee : I prefer both because it will be more convenient for the users in all seasons especially in winter people will be wearing gloves and touch screen might not work, and also another example why I prefer both is during the time of pandemic few people will be wearing gloves to avoid the spread of the diseases so if people are wearing some kind of protection to hands then it is highly likely that touch screens might not respond. In all other cases people use buttons and in other normal circumstances touch screens are preferable.\\\\
-Interviewer:  As a frequent user, do you prefer to buy the printed ticket or to reload your OPUS card? \\
-Interviewee: As a frequent user, I prefer to reload the OPUS card because it saves lot of time while traveling. If I need to purchase ticket every time then I should always plan ahead and start early every time whenever I go out. So, I prefer to reload the OPUS card.\\\\
-Interviewer:  So is there any other problem that you are facing with the current?\\
-Interviewee: According to me it would be more convenient If there is a tap option while purchase the tickets using TVM as it will reduce the time for each transaction and the queues to purchase the ticket can be reduced.\\\\
-Interviewer:  Did you face issues while making the payment if so please select the mode of payment you did at the time you faced the issues (Please select the option only if you faced issue multiple times more than twice or thrice) ?\\
-Interviewee: I have recharged my metro card multiple times I didn’t face any issue but when I use the TVM for the first issue it was confusing for me to understand where to place my OPUS card on the TVM and where to use Debit/Credit card to purchase the ticket. According to me it is due to lack of proper instructions. Some seconds video/proper instructions might solve this problem according to me.\\\\
-Interviewer:  Should there be a discount for Students and elderly people on fares?\\
-Interviewee : Yes, It is absolutely important if the fares are discounted for the students and elderly people because most of the people in this category will be hardly earning their money for their livelihood and it would become more difficult for them if the tickets prices are too costly for them to purchase as they can’t afford the prices to commute in metro. So, according to me it’s highly important for students and elderly to offer tickets in reduced prices.\\\\
-Interviewer:  What type of pass do you purchase the most? (Daily, Weekly, Monthly, One way, Two way)\\
-Interviewee: I prefer monthly because I use the metro card every day for commuting but I suggest keeping day pass, single trip, multiple trips, weekly, weekend pass. Etc., so that it will be easy for the people to use the metro whenever they are in need, and they will be paying for what they use. \\\\
-Interviewer:  Which kind of payment receipt will be more convenient for you? (Paper receipt, e-receipt)\\
-Interviewee: I, personally prefer paper receipt because after recharging sometimes due to some glitches the metro card won’t work. I personally faced this issue, in this case it would be easy for someone to raise a complaint and produce the proof of receipt as purchase so that it would be easy to track the issue. \\\\
-\textbf{Interview 3:}\\\\
+\textbf{Interviewer:} Yashwanth Gundlapally (4016 4633)\\
+\textbf{Interviewee:} Adhik Chandran (Email ID: adhikchandran@gmail.com)\\\\
+\textbf{Interviewer:}  What kind of interface do you prefer at the TVM? (Button operated, Touch screen, Both)\\
+\textbf{Interviewee:} I prefer both because it will be more convenient for the users in all seasons especially in winter people will be wearing gloves and touch screen might not work, and also another example why I prefer both is during the time of pandemic few people will be wearing gloves to avoid the spread of the diseases so if people are wearing some kind of protection to hands then it is highly likely that touch screens might not respond. In all other cases people use buttons and in other normal circumstances touch screens are preferable.\\\\
+\textbf{Interviewer:}  As a frequent user, do you prefer to buy the printed ticket or to reload your OPUS card? \\
+\textbf{Interviewee:} As a frequent user, I prefer to reload the OPUS card because it saves lot of time while traveling. If I need to purchase ticket every time then I should always plan ahead and start early every time whenever I go out. So, I prefer to reload the OPUS card.\\\\
+\textbf{Interviewer:}  So is there any other problem that you are facing with the current?\\
+\textbf{Interviewee:} According to me it would be more convenient If there is a tap option while purchase the tickets using TVM as it will reduce the time for each transaction and the queues to purchase the ticket can be reduced.\\\\
+\textbf{Interviewer:}  Did you face issues while making the payment if so please select the mode of payment you did at the time you faced the issues (Please select the option only if you faced issue multiple times more than twice or thrice) ?\\
+\textbf{Interviewee:} I have recharged my metro card multiple times I didn’t face any issue but when I use the TVM for the first issue it was confusing for me to understand where to place my OPUS card on the TVM and where to use Debit/Credit card to purchase the ticket. According to me it is due to lack of proper instructions. Some seconds video/proper instructions might solve this problem according to me.\\\\
+\textbf{Interviewer:}  Should there be a discount for Students and elderly people on fares?\\
+\textbf{Interviewee:} Yes, It is absolutely important if the fares are discounted for the students and elderly people because most of the people in this category will be hardly earning their money for their livelihood and it would become more difficult for them if the tickets prices are too costly for them to purchase as they can’t afford the prices to commute in metro. So, according to me it’s highly important for students and elderly to offer tickets in reduced prices.\\\\
+\textbf{Interviewer:}  What type of pass do you purchase the most? (Daily, Weekly, Monthly, One way, Two way)\\
+\textbf{Interviewee:} I prefer monthly because I use the metro card every day for commuting but I suggest keeping day pass, single trip, multiple trips, weekly, weekend pass. Etc., so that it will be easy for the people to use the metro whenever they are in need, and they will be paying for what they use. \\\\
+\textbf{Interviewer:}  Which kind of payment receipt will be more convenient for you? (Paper receipt, e-receipt)\\
+\textbf{Interviewee:} I, personally prefer paper receipt because after recharging sometimes due to some glitches the metro card won’t work. I personally faced this issue, in this case it would be easy for someone to raise a complaint and produce the proof of receipt as purchase so that it would be easy to track the issue.
+\section{Interview-3}
 Date – 28-02-2023, 11:59 PM \\
-Interviewer: Carlos Garcia (4019 4062)\\
-Interviewee: Catherine Cooper (Email ID: catherine6382@gmail.com)\\\\
-Interviewer: Have you noticed any improvements in the public transportation system over the past few years?\\
-Interviewee: Yes, I have noticed some improvements. The frequency of the trains has increased, and the trains are now more punctual than they used to be. The cleanliness of the stations has also improved, and there are now more facilities available for passengers, such as charging points for electronic devices. However, there is still room for further improvement, particularly in terms of the user-friendliness of the ticketing system.\\\\
-Interviewer: How important do you think it is for public transportation to be accessible to people with disabilities?\\
-Interviewee: I think it is very important for public transportation to be accessible to people with disabilities. Everyone should have the right to access public transportation and to travel independently. This means that there should be ramps or lifts at stations, designated spaces for wheelchairs on trains, and audio and visual announcements to help people with visual or hearing impairments. By making public transportation more accessible, we can help to create a more inclusive society where everyone has equal opportunities to participate in public life.\\\\
-Interviewer: Do you have any suggestions for how the public transportation system could be made more environmentally friendly?\\
-Interviewee: Yes, there are several ways that the public transportation system could be made more environmentally friendly. For example, trains could be powered by renewable energy sources, such as wind or solar power. There could also be incentives for people to use public transportation, such as reduced fares for people who travel during off-peak hours or who use reusable travel cards. Additionally, more efforts could be made to encourage people to walk or cycle to the stations, by providing more secure bike storage facilities and improving pedestrian access to the stations.\\\\
-Interviewer: Can you give us some specific examples of what changes you would like to see in the TVM system to make it more user-friendly?\\
-Interviewee: I think it would be helpful to have clearer instructions displayed on the TVM screen, particularly for first-time users. This could include step-by-step guides on how to purchase a ticket, how to navigate different ticket options, and how to use the machine's features such as contactless payment. Additionally, it might be helpful to have a customer support hotline or chat feature that people can use if they run into problems with the TVM.\\\\
-Interviewer: That makes sense. Do you have any other suggestions for how public transportation systems can be improved?\\
-Interviewee: One thing that comes to mind is the need for better integration between different modes of public transportation. For example, in Montreal, it can be difficult to transfer between the metro and buses, especially if you're unfamiliar with the system. It would be helpful if there were more seamless connections between different modes of transport, perhaps through the use of a single payment system or more visible signage at transfer points.\\\\
-Interviewer: Thank you for sharing your insights. Do you have any final thoughts on how public transportation can be improved to better meet the needs of commuters?\\
-Interviewee: Yes, I think it's important to listen to feedback from users and make changes based on their suggestions. By involving the community in the design and implementation of public transportation systems, we can create more user-friendly and effective solutions that meet the needs of everyone who relies on them.\\\\
-\textbf{Interview 4:}\\\\
+\textbf{Interviewer:} Carlos Garcia (4019 4062)\\
+\textbf{Interviewee:} Catherine Cooper (Email ID: catherine6382@gmail.com)\\\\
+\textbf{Interviewer:} Have you noticed any improvements in the public transportation system over the past few years?\\
+\textbf{Interviewee:} Yes, I have noticed some improvements. The frequency of the trains has increased, and the trains are now more punctual than they used to be. The cleanliness of the stations has also improved, and there are now more facilities available for passengers, such as charging points for electronic devices. However, there is still room for further improvement, particularly in terms of the user-friendliness of the ticketing system.\\\\
+\textbf{Interviewer:} How important do you think it is for public transportation to be accessible to people with disabilities?\\
+\textbf{Interviewee:} I think it is very important for public transportation to be accessible to people with disabilities. Everyone should have the right to access public transportation and to travel independently. This means that there should be ramps or lifts at stations, designated spaces for wheelchairs on trains, and audio and visual announcements to help people with visual or hearing impairments. By making public transportation more accessible, we can help to create a more inclusive society where everyone has equal opportunities to participate in public life.\\\\
+\textbf{Interviewer:} Do you have any suggestions for how the public transportation system could be made more environmentally friendly?\\
+\textbf{Interviewee:} Yes, there are several ways that the public transportation system could be made more environmentally friendly. For example, trains could be powered by renewable energy sources, such as wind or solar power. There could also be incentives for people to use public transportation, such as reduced fares for people who travel during off-peak hours or who use reusable travel cards. Additionally, more efforts could be made to encourage people to walk or cycle to the stations, by providing more secure bike storage facilities and improving pedestrian access to the stations.\\\\
+\textbf{Interviewer:} Can you give us some specific examples of what changes you would like to see in the TVM system to make it more user-friendly?\\
+\textbf{Interviewee:} I think it would be helpful to have clearer instructions displayed on the TVM screen, particularly for first-time users. This could include step-by-step guides on how to purchase a ticket, how to navigate different ticket options, and how to use the machine's features such as contactless payment. Additionally, it might be helpful to have a customer support hotline or chat feature that people can use if they run into problems with the TVM.\\\\
+\textbf{Interviewer:} That makes sense. Do you have any other suggestions for how public transportation systems can be improved?\\
+\textbf{Interviewee:} One thing that comes to mind is the need for better integration between different modes of public transportation. For example, in Montreal, it can be difficult to transfer between the metro and buses, especially if you're unfamiliar with the system. It would be helpful if there were more seamless connections between different modes of transport, perhaps through the use of a single payment system or more visible signage at transfer points.\\\\
+\textbf{Interviewer:} Thank you for sharing your insights. Do you have any final thoughts on how public transportation can be improved to better meet the needs of commuters?\\
+\textbf{Interviewee:} Yes, I think it's important to listen to feedback from users and make changes based on their suggestions. By involving the community in the design and implementation of public transportation systems, we can create more user-friendly and effective solutions that meet the needs of everyone who relies on them.
+\section{Interview-4}
 Date – 28-02-2023, 22:35 PM \\
-Interviewer: Apekshaba Gohil (40203058)\\
-Interviewee: Shreyas Patel (Email ID:shreyasptl007@gmail.com)\\\\
-Interviewer: Do you use public transport? If yes how often?\\
+\textbf{Interviewer:} Apekshaba Gohil (40203058)\\
+\textbf{Interviewee:} Shreyas Patel (Email ID:shreyasptl007@gmail.com)\\\\
+\textbf{Interviewer:} Do you use public transport? If yes how often?\\
 Interviewee: Yes,I use public transportation regularly. Around 5 to 6 times a week.\\\\
-Interviewer: What do you think about online system? and do you think it will improve overall experience?\\
-Interviewee: I believe having an online System would be better since I will not be restricted by time or place and I can recharge my opus or buy a ticket online. But there should be physical machines as well in case elderly people feel restricted by the technology. There should be a blend of both online as well as physical systems.\\\\
-Interviewer:  What kind of interface you prefer for TVM?(Button operated, Touch screen, Both)\\
-Interviewee: It should be a blend of both, People with vision disability would prefer buttons whereas with improving technology a touch screen interface will be more comfortable and will provide ease of use.\\\\
-Interviewer: Rate the ease of access of current system on the scale of 1 to 5 (1 being worst and 5 is best)?\\
-Interviewee:  I would say 3 since there is no option for refund in case a mistake during transaction, and also the interface is quite old and no touch screen.\\\\
-Interviewer: Do you think there should be a discount for students and elderly people?\\
-Interviewee:  Because, For elderly people they mostly survive on their savings or pensions they get which they have to cover their monthly expenses so there should be discount for transportation, For students there should be discount because they need to focus on their education and they work on part-time basis which can cover their monthly expenses so it will be better for them to have discount.\\\\
-Interviewer: That makes sense. At last, do you have any other suggestions for how public transportation systems can be improved?\\
-Interviewee: if it can solve the problem of long queues through online ticket option, as you mentioned earlier, it would be just great.\\\\
-\textbf{Interview 5:}\\\\
+\textbf{Interviewer:} What do you think about online system? and do you think it will improve overall experience?\\
+\textbf{Interviewee:} I believe having an online System would be better since I will not be restricted by time or place and I can recharge my opus or buy a ticket online. But there should be physical machines as well in case elderly people feel restricted by the technology. There should be a blend of both online as well as physical systems.\\\\
+\textbf{Interviewer:}  What kind of interface you prefer for TVM?(Button operated, Touch screen, Both)\\
+\textbf{Interviewee:} It should be a blend of both, People with vision disability would prefer buttons whereas with improving technology a touch screen interface will be more comfortable and will provide ease of use.\\\\
+\textbf{Interviewer:} Rate the ease of access of current system on the scale of 1 to 5 (1 being worst and 5 is best)?\\
+\textbf{Interviewee:}  I would say 3 since there is no option for refund in case a mistake during transaction, and also the interface is quite old and no touch screen.\\\\
+\textbf{Interviewer:} Do you think there should be a discount for students and elderly people?\\
+\textbf{Interviewee:} Because, For elderly people they mostly survive on their savings or pensions they get which they have to cover their monthly expenses so there should be discount for transportation, For students there should be discount because they need to focus on their education and they work on part-time basis which can cover their monthly expenses so it will be better for them to have discount.\\\\
+\textbf{Interviewer:} That makes sense. At last, do you have any other suggestions for how public transportation systems can be improved?\\
+\textbf{Interviewee:} if it can solve the problem of long queues through online ticket option, as you mentioned earlier, it would be just great.
+\section{Interview-5}
 Date – 02-03-2023, 09:30 AM \\
-Interviewer: Amro Elbahrawy (40221760)\\
-Interviewee: Waleed Zaky (Email ID: waleed.bhr@gmail.com)\\\\
-Interviewer: Have you used the metro outside of Montreal? If so, in which country was it?\\
-Interviewee: Yes, Chicago USA.\\\\
-Interviewer:  Do you count yourself as an occasional or a regular metro commuter there?\\
-Interviewee: I am a regular commuter.\\\\
-Interviewer:  Are there any noticeable differences in using the metro in Chicago compared to in Montreal?\\
-Interviewee: Yes, mainly the fares and passes. In Chicago we are able to load our passes in apple pay, Google pay, and be able to recharge our accounts online using the CTA Ventra App\\\\
-Interviewer:  Do you have any special fare suggestions?\\
-Interviewee: Yes. multi-day fares such as 24 hours or 3-day fares can be a good addition.\\\\
-Interviewer:  I see. Do you have any occasions in mind that would utilize special fares well?\\
-Interviewee: Yes. Weekend passes and special holiday fares would be a great addition, as well as fares during university vacation times.\\\\
+\textbf{Interviewer:} Amro Elbahrawy (40221760)\\
+\textbf{Interviewee:} Waleed Zaky (Email ID: waleed.bhr@gmail.com)\\\\
+\textbf{Interviewer:} Have you used the metro outside of Montreal? If so, in which country was it?\\
+\textbf{Interviewee:} Yes, Chicago USA.\\\\
+\textbf{Interviewer:}  Do you count yourself as an occasional or a regular metro commuter there?\\
+\textbf{Interviewee:} I am a regular commuter.\\\\
+\textbf{Interviewer:}  Are there any noticeable differences in using the metro in Chicago compared to in Montreal?\\
+\textbf{Interviewee:} Yes, mainly the fares and passes. In Chicago we are able to load our passes in apple pay, Google pay, and be able to recharge our accounts online using the CTA Ventra App\\\\
+\textbf{Interviewer:} Do you have any special fare suggestions?\\
+\textbf{Interviewee:} Yes. multi-day fares such as 24 hours or 3-day fares can be a good addition.\\\\
+\textbf{Interviewer:}  I see. Do you have any occasions in mind that would utilize special fares well?\\
+\textbf{Interviewee:} Yes. Weekend passes and special holiday fares would be a great addition, as well as fares during university vacation times.
 \end{document}
 \end{document}

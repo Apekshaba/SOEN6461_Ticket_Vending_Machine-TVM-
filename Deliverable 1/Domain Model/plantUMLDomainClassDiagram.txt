@@ -4,95 +4,141 @@ skinparam class {
     BorderColor Black
 }
 
-class TVM {
-  +void displayUserInterface()
+package user{
+  class Registered_Commuter {
+    -TransitCard transitCard
+  }
+  
+  class User{
+    -int userId
+    -String fname
+    -String lname
+    -String email
+    -int contact
+  }
+  
+  class Unregistered_Commuter{
+    
+  }
+  
+  class Conductor{
+    -String schedule
+    -String licenseNumber
+    -String licenseType
+  }
 }
 
-class Banknote_Receptacle {
+package business{
+
+  class Station {
+    -String name
+    -String location
+    -String code
+  }
+  
+  class StationTerminal {
+    -Station station
+    -TicketCollector_Controller ticketController
+    -TransitCardReader TransitCardReader
+    -TicketDispenser ticketDispenser
+  }
+  
+  class Ticket {
+    -int ticketNumber
+    -Date expirationDate
+  }
+  
+  class Fare {
+    -String description
+    -float amount
+    -String currency
+  }
 }
 
-class Registered_Commuter {
-  -String id
-  -String name
-}
+package machine {
+  class Machine{
+    -String serialNumber
+    -String model
+    -String manufacturer
+  }
+  
+  class TVM {
+    -PaymentCardReader paymentReader
+    -TransitCardReader cardReader
+    -TicketDispenser ticketDispenser
+    -Banknote_Receptacle banknoteReceptacle
+    -Station station
+  }
 
-class Station {
-  -String name
-  -String location
-  -String code
-}
+  class Banknote_Receptacle {
+  }
 
+  class TransitCard {
+    -String cardNumber
+    -float balance
+  }
 
+  class TicketDispenser {
 
-class Ticket {
-  -int ticketNumber
-  -Date expirationDate
-}
+  }
 
-class Fare {
-  -float amount
-  -String currency
-}
+  class TransitCardReader {
 
-class TransitCard {
-  -String cardNumber
-  -float balance
-}
+  }
 
-class TicketDispenser {
-  +Ticket dispenseTicket()
-}
+  class PaymentCardReader{
 
-class TransitCardReader {
-  +void readCard(TransitCard card)
-}
+  }
 
-class PaymentCardReader{
-
-}
-
-class Transaction {
-  -int transactionId
-  -Date transactionDate
-  -TransitCard card
-  -Fare fare
-  -Payment payment
-}
-
-class Payment {
-  -float amount
-  -String currency
-  -String partner
-}
-
-class Invoice{
-
-}
-
-class PaymentPartner {
-  +Refund refundPayment(Transaction transaction)
-  +boolean processPayment(Payment payment)
-}
-
-class Bank {
-  +void processTransaction(Transaction transaction)
-}
-
-class TicketCollector_Controller {
-  +void collectTicket(Ticket ticket, Station station)
-  +boolean validateCard(TransitCard card, Fare fare, Station station)
-}
-
-class StationTerminal {
+  class TicketCollector_Controller {
   -Station station
-  -TicketCollector_Controller ticketController
-  -TransitCardReader TransitCardReader
-  -TicketDispenser ticketDispenser
+  }
+}
+
+package finance{
+  class Transaction {
+    -int transactionId
+    -Date transactionDate
+    -TransitCard card
+    -Fare fare
+    -Payment payment
+  }
+
+  class Payment {
+    -float amount
+    -String currency
+    -PaymentPartner partner
+    -String type
+  }
+  
+  class Invoice{
+    -int invoiceId
+    -Transaction transaction
+    -Payment payment
+    -Timestamp transactionDate
+  }
+  
+  class Contract{
+    -int contractId
+    -String contractDetails
+  }
+  
+  class PaymentPartner {
+    -String name
+    -String address
+    -Date startedAt
+    -Contract contract
+  }
+  
+  class Bank {
+    -String name
+    -String address
+    -String BIC
+  }
 }
 
 User <|-- Conductor
 User <|-- Registered_Commuter
-User <|-- Unregistered_Commuter
 Conductor --> StationTerminal
 TVM "1" *-- "1" Banknote_Receptacle
 TVM "1...*" o-- "1" Station: Belongs to
@@ -107,7 +153,8 @@ PaymentCardReader "1" --* "1" TVM
 Transaction "0...*" -- "1" TransitCard: Belongs to >
 Transaction "1..*" - "1..*" Payment
 (Transaction, Payment) .. Invoice
-PaymentPartner --> "1..*" Transaction : Manages
+PaymentPartner --> "1..*" Payment : Manages
+Contract "1" --> "1" PaymentPartner : Is tied to
 Bank --> "1..*" Transaction : Processes
 TicketCollector_Controller "1" --> "0...*" Ticket: Accepts >
 TicketCollector_Controller "0...*" --* "1" Station
@@ -116,5 +163,9 @@ Station "1" *-- "1...*"StationTerminal
 StationTerminal "1" --> "1...*" TransitCardReader
 TVM "1" *-- "1" TicketDispenser
 TransitCard "1" --o "1" Registered_Commuter
-
+Machine <|-- PaymentCardReader
+Machine <|-- TVM
+Machine <|-- TransitCardReader
+Machine <|-- Banknote_Receptacle
+Machine <|-- TicketCollector_Controller
 @enduml

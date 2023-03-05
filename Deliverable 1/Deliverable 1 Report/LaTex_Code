@@ -141,186 +141,22 @@ The domain model is grouped into four main categories in the form of package dia
     \item The \textit{machine} package includes classes for the machinery used in all parts of iGo, including processing different payment options, reading tickets and cards, as well as recharging cards and purchasing tickets. Classes involved are TVM, transit card reader, payment card reader, ticket dispenser, banknote receptacle, and ticket collector.
     \item The \textit{finance} package contains classes that manage the payment process in iGo when purchasing tickets and fares, as well as receipt management. These classes include including payment, invoice, contract, and payment partner.
 \end{enumerate}
-Understanding these relationships and cardinalities is crucial for ensuring the integrity and functionality of the system. Each class has unique attributes and behaviors that allow them to interact with one another, and by examining their relationships and cardinalities, we can gain a deeper understanding of how the system works.
-\begin{enumerate}
-    \item User
-    \\This class represents a user of the transportation system and contains information such as their ID, name, email, and contact details. There are two subclasses of User: Registered Commuter and Unregistered Commuter.
-    \begin{itemize}
-        \item Description of relationships
-        \begin{itemize}
-            \item User and Conductor have a one-to-one relationship, meaning that one user can be associated with one conductor.
-            \item User and Registered Commuter have a one-to-many relationship, indicating that a user can have multiple registered commuter accounts, but each registered commuter account can only belong to one user.
-        \end{itemize}
-    \end{itemize}
-
-\item Registered Commuter
-\\This class represents a commuter who has registered with the transportation service and has a TransitCard. This class is associated with the User class as it inherits the basic user information from it.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Registered Commuter and TransitCard have a one-to-one relationship, indicating that each registered commuter has only one transit card, and each transit card belongs to only one registered commuter.
-\end{itemize}
-\end{itemize}
-\item Conductor
-\\This class represents a conductor and contains information such as their schedule and license details. The Conductor class is associated with the StationTerminal class.
-\begin{itemize}
-    \item Description of relationships
-    \begin{itemize}
-        \item Conductor and StationTerminal have a one-to-many relationship, meaning that one conductor can be assigned to multiple station terminals, but each station terminal can only have one assigned conductor.
-    \end{itemize}
-\end{itemize}
-\item Station
-\\This class represents a station and contains information such as its name, location, and code. The Station class is associated with the StationTerminal class and is related to the TicketCollector Controller and Bank classes.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Station and StationTerminal have a one-to-many relationship, meaning that one station can have multiple station terminals, but each station terminal can only belong to one station.
-\end{itemize}
-\end{itemize}
-\item StationTerminal
-\\This class represent a single terminal inside a station. The StationTerminal class is associated with the Station class.
-\begin{itemize}
-    \item Description of relationships
-    \begin{itemize}
-        \item Unregistered Commuter and StationTerminal have a zero-to-one relationship, meaning that an unregistered commuter may or may not be associated with a station terminal.
-    \end{itemize}
-\end{itemize}
-\item TransitCard
-\\This class represents a transit card and contains information such as the card number and balance. The TransitCard class is associated with the Registered Commuter class and the Fare class.
-\begin{itemize}
-    \item Description of relationships
-    \begin{itemize}
-        \item Registered Commuter and TransitCard have a one-to-one relationship, indicating that each registered commuter has only one transit card, and each transit card belongs to only one registered commuter.
-        \item TransitCard and Fare have a many-to-one relationship, meaning that many transit cards can be associated with one fare.
-    \end{itemize}
-\end{itemize}
-\item TransitCardReader
-\\TransitCardReader class represents a device that can read TransitCards. This class is associated with the TVM class, as a TransitCardReader is typically found in a TVM (Ticket Vending Machine)
-\begin{itemize}
-    \item Description of relationships
-    \begin{itemize}
-        \item TransitCardReader and TransitCard have a one-to-one relationship, indicating that a transit card reader can only read one transit card.
-        \item TransitCardReader and TVM have a one-to-many relationship, meaning that a TVM can have multiple transit card readers, but each transit card reader can only belong to one TVM.
-    \end{itemize}
-\end{itemize}
-\item Fare
-\\This class represents the fare for a journey and contains information such as the fare amount and currency. The Fare class is associated with the Ticket and TransitCard classes.
-\item Ticket
-\\The Ticket class represents a ticket that a commuter can use to travel on the transit system. It contains the ticket number and the expiration date of the ticket.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Ticket and Fare have a many-to-one relationship, indicating that many tickets can be associated with one fare.
-\end{itemize}
-\end{itemize}
-\item TicketDispenser
-\\The TicketDispenser class represents a machine that issues tickets to commuters. It is responsible for generating new tickets with unique ticket numbers, and dispensing them to the commuter who requests them.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item TicketDispenser and Ticket have a one-to-many relationship, indicating that a ticket dispenser can dispense multiple tickets, but each ticket can only be dispensed by one ticket dispenser.
-\end{itemize}
-\end{itemize}
-\item TicketCollectorController
-\\The TicketCollectorController class represents the device used by conductors to collect tickets from commuters.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item TicketCollectorController and Ticket have a one-to-many relationship, indicating that a ticket collector controller can accept multiple tickets, but each ticket can only be accepted by one ticket collector controller.
-\item TicketCollectorController and Station have a one-to-many relationship, meaning that one ticket collector controller can be associated with multiple stations, but each station can only have multiple ticket collector controllers.
-\item TicketCollectorController and TransitCard have a zero-to-many relationship, meaning that a ticket collector controller may or may not be associated with a transit card.
-\end{itemize}
-\end{itemize}
-\item TVM
-\\This class represents a ticket vending machine and contains components such as a payment card reader, transit card reader, ticket dispenser, and banknote receptacle. The TVM class is associated with the Station class and TransitCardReader, PaymentCardReader, and TicketDispenser classes.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item TVM and Banknote Receptacle have a one-to-one relationship, indicating that a TVM can only have one banknote receptacle.
-\end{itemize}
-\end{itemize}
-\item Transaction
-\\This class represents a transaction and contains information such as the transaction ID, date, and payment details. The Transaction class is associated with the TransitCard, Fare, and Payment classes and is related to the Invoice and Bank classes.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Transaction and TransitCard have a many-to-one relationship, meaning that many transactions can be associated with one transit card.
-\item Transaction and Payment have a one-to-many relationship, indicating that one transaction can have multiple payments, and each payment can only belong to one transaction.
-\item Transaction and Invoice have a one-to-many relationship, indicating that one transaction can have multiple invoices, and each invoice can only belong to one transaction.
-\end{itemize}
-\end{itemize}
-\item Payment
-\\This class represents a payment and contains information such as the payment amount, currency, and payment partner. The Payment class is associated with the Transaction and Invoice classes and is related to the PaymentPartner class.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Payment and Transaction have a many-to-one relationship, indicating that many payments can be associated with one transaction.
-\item Payment and Invoice have a one-to-many relationship, indicating that one payment can have multiple invoices, and each invoice can only belong to one payment.
-\item Payment and PaymentPartner have a many-to-one relationship, meaning that many payments can be associated with one payment partner.
-\end{itemize}
-\end{itemize}
-\item PaymentPartner
-\\This class represents a payment partner and contains information such as their name, address, and contract details. The PaymentPartner class is associated with the Payment and Contract classes.
-\begin{itemize}
-    \item Description of relationships
-    \begin{itemize}
-        \item PaymentPartner and Payment have a one-to-many relationship, indicating that one payment partner can manage multiple payments, and each payment can only be managed by one payment partner.
-    \end{itemize}
-\end{itemize}
-\item PaymentCardReader
-\\The PaymentCardReader class represents a payment card reader machine, which is responsible for reading payment card information such as credit or debit card details.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item PaymentCardReader and TVM have a one-to-many relationship, meaning that a TVM can have multiple payment card readers, but each payment card reader can only belong to one TVM.
-\end{itemize}
-\end{itemize}
-\item Contract
-\\This class represents a contract and contains information such as the contract ID and details. The Contract class is associated with the PaymentPartner class.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Contract and PaymentPartner have a one-to-one relationship, indicating that each payment partner has only one contract, and each contract belongs to only one payment partner.
-\end{itemize}
-\end{itemize}
-\item Bank
-\\This class represents a bank and contains information such as its name, address, and BIC. The Bank class is associated with the Transaction class.
-\begin{itemize}
-\item Description of relationships
-\begin{itemize}
-\item Bank and Transaction have a one-to-many relationship, meaning that one bank can process multiple transactions.
-\end{itemize}
-\end{itemize}
-\item Machine
-\\Class that contains attributes like serial number, model, manufacturer. This class generalizes the PaymentCardReader, TVM, TransitCard Reader, Banknote Receptacle, TicketCollector Controller classes.
-\end{enumerate}
 \chapter{Problem 3}
 \section{Mind Map of iGO}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=155mm,height=135mm,scale=0.5]{images/mindmap.png}
+   \includegraphics[width=155mm,height=150mm,scale=0.5]{images/mindmap.png}
   \caption{Mind map of iGO}
 \end{figure}
-The mind map created by the team was an outcome of a brainstorming session on the various aspects of the TVM project. The central concept
-is the TVM itself and the first-order branches represent those matters that we found to be crucial to our design, namely Ease of Use, UX
-[User Experience] and Interactivity, Location, Pricing, Payments, Security, Accessibility, Ticketing, Best Global Practices and Extra Features.
+The mind map created by the team was an outcome of a brainstorming session on the various aspects of the TVM project. The central concept is the TVM itself and the first-order branches represent those matters that we found to be crucial to our design, namely Ease of Use, UX [User Experience] and Interactivity, Location, Pricing, Payments, Security, Accessibility, Ticketing, Best Global Practices and Extra Features.
 \\\\
-Each subgraph has been distinctly colour-coded for readability purposes, and several visual cues (images) were added to expedite recognition
-and improve intuitive perception of the map by its actual and potential users. At the edges of the map, one can find the questions, styled as
-yellow sticky notes, that logically followed from the final nodes of each subbranch.
+Each subgraph has been distinctly colour-coded for readability purposes, and several visual cues (images) were added to expedite recognition and improve intuitive perception of the map by its actual and potential users. At the edges of the map, one can find the questions, styled as yellow sticky notes, that logically followed from the final nodes of each subbranch.
 \\\\
-In addition, some branches guided the team in our choice of interviewees rather than resulted in a specific question. For example, when
-brainstorming best global practices we realized, with the help of the mind map, that we may need to interview a public transit user from a major
-city outside Quebec and Canada (the team was able to get hold of someone from Chicago).
+In addition, some branches guided the team in our choice of interviewees rather than resulted in a specific question. For example, when brainstorming best global practices we realized, with the help of the mind map, that we may need to interview a public transit user from a major city outside Quebec and Canada (the team was able to get hold of someone from Chicago).
 \\\\
-The mind map produced offers several insights as concerns the team’s thinking process. For instance, some subbranches ended up being more
-crowded than others, which indicates the relative importance of certain matters to the project. To illustrate this point, a quick glance at the
-map will reveal that the matter of Payments was discussed more thoroughly and produced more ideas than most other areas of interest, which reflects
-the complexity associated with one of the most important core flows lying at the heart of the system.
+The mind map produced offers several insights as concerns the team’s thinking process. For instance, some subbranches ended up being more crowded than others, which indicates the relative importance of certain matters to the project. To illustrate this point, a quick glance at the map will reveal that the matter of Payments was discussed more thoroughly and produced more ideas than most other areas of interest, which reflects the complexity associated with one of the most important core flows lying at the heart of the system.
 \\\\
-The questions summarizing our brainstorming and mind mapping session, as found at the edges of the map, were used for interview scripts, but were
-adapted as needed during the actual course of the meetings to ensure more natural interactions and high-quality insights.
-
+The questions summarizing our brainstorming and mind mapping session, as found at the edges of the map, were used for interview scripts, but were adapted as needed during the actual course of the meetings to ensure more natural interactions and high-quality insights.
 \section{Interviews}
 In software engineering and human-computer interface, interviews are frequently employed. They serve as a means of gathering needs, learning more about the software system's users, learning about the users' positive and bad experiences with the system, etc.\\\\
 Before creating the various software artefacts for our project, we conducted interviews with people. We tried to retain a fairly diversified sample of respondents by selecting individuals who are: From a range of ages and backgrounds and include both technical users and non-technical users.\\\\
@@ -485,25 +321,27 @@ All actors, use cases, and their relationships are represented in a use case mod
 \section{Card Signup Activity Diagram}\hfill
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=200mm,scale=0.5]{images/Card_Signup.png}
+   \includegraphics[width=150mm,height=170mm,scale=0.5]{images/Card_Signup.png}
   \caption{Activity Diagram for iGo Card Signup}
 \end{figure}
+\\\\\\\\\\\\
 \section{Select Language Activity Diagram}
 \begin{figure}[h!]
   \centering
    \includegraphics[width=150mm,height=210mm,scale=0.5]{images/select_language.jpg}
   \caption{Select Language Activity Diagram}
 \end{figure}
+
 \section{Purchase Ticket Activity Diagram}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=210mm,scale=0.5]{images/Purchase_Ticket_Activity.jpeg}
+   \includegraphics[width=150mm,height=220mm,scale=0.5]{images/Purchase_Ticket_Activity.jpeg}
   \caption{Purchase Ticket Activity Diagram}
 \end{figure}
 \section{Payment Activity Diagram}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=200mm,scale=0.5]{images/Payment_Activity_Diagram.png}
+   \includegraphics[width=150mm,height=200mm,scale=0.5]{images/Payment_Activity_Diagram.jpeg}
   \caption{Payment Activity Diagram}
 \end{figure}
 \chapter{References}
@@ -519,6 +357,8 @@ All actors, use cases, and their relationships are represented in a use case mod
   \item Google form which we used for interviews - \href{https://docs.google.com/forms/d/12D6sXLjWFCtpH7vW8L07wA6l39XUuOzsR9XzgtdqhwM/edit}{Google Form Link}
 \end{enumerate}
 \chapter{Appendix}
+\textbf{\LARGE{Interview Recordings (Drive Link):}}\\\\
+\url{https://drive.google.com/drive/folders/1Yacj_tL098LSFhWG8j1h0X6ZFnottpPd?usp=share_link}\\\\
 \textbf{\LARGE{Interview Questions}}\\\\
 \section{Interview-1}
 Date – 27-02-2023, 10:36 PM\\
@@ -598,5 +438,35 @@ Date – 02-03-2023, 09:30 AM \\
 \textbf{Interviewee:} Yes. multi-day fares such as 24 hours or 3-day fares can be a good addition.\\\\
 \textbf{Interviewer:}  I see. Do you have any occasions in mind that would utilize special fares well?\\
 \textbf{Interviewee:} Yes. Weekend passes and special holiday fares would be a great addition, as well as fares during university vacation times.
+\section{Interview-6}
+Date – 04-03-2023, 09:13 PM\\
+\textbf{Interviewer:} Ernesto Garsiya Melikhov (ID 40039957)\\
+\textbf{Interviewee:} Mariya Milovanova (email: m.milovanova@gmail.com)\\\\
+\textbf{Interviewer:} Hi, thank you for accepting our invitation for interview. This should be relatively quick and, for now, we don’t expect any follow ups. We plan on recording this interview in writing, please let us know if you have any concerns.\\
+\textbf{Interviewee:} Hi, no problem. Glad to be of help. \\\\
+\textbf{Interviewer:} Ok, first of all, the purpose of this meeting is to ask you question pertaining to a potential ticket vending system with a focus on the subway. We are gathering people’s experiences and opinions to be able to ensure a design that meets the most important expectations.\\
+\textbf{Interviewee:} Got it. Go ahead then. \\\\
+\textbf{Interviewer:} Ok, to begin with, what is your overall experience purchasing tickets at subway stations? Do you find it to be easy and relatively fast or unneccessarily complicated and long?\\
+\textbf{Interviewee:} Well, I do mostly use my OPUS card that I recharge once a month. Every time it’s quite hectic since most people do it on the first day of the month and the lineups can be quite big. \\\\
+\textbf{Interviewer:} Right, and is this experience different when or if you have to buy a physical ticket?\\
+\textbf{Interviewee:} Well, it’s often one and the same vending machine. So, it depends on the day. If it’s not the first of a month, there’s a lot less people so, overall, buying a ticket is then more convenient. \\\\
+\textbf{Interviewer:} So, whenever there is just one TVM available, how long would you say you have to wait in line before being able to buy a ticket? Let’s say, early in the morning when everyone is commuting to work? Any rough estimate in minutes?\\
+\textbf{Interviewee:} Well, I’d say at least 5 minutes. Sometimes more. \\\\
+\textbf{Interviewer:} But less than 10?\\
+\textbf{Interviewee:} Yes, 10 would be too long. I would lose my patience by then. \\\\
+\textbf{Interviewer:} I understand. And what about when there is no rush in the metro? Say, during the day?\\
+\textbf{Interviewee:} Oh, that’s almost instantaneous. At least where I buy tickets from. There’s rarely more than one person ahead of you, unless there’s some major event, like a hockey game, going on in the city outside of rush hour.\\\\
+\textbf{Interviewer:} Got it. And do you buy your tickets and reload your card by cash or card?\\
+\textbf{Interviewee:} Always by card, I don’t carry cash on me. \\\\
+\textbf{Interviewer:} Credit or debit?\\
+\textbf{Interviewee:} Credit 99\% of the time. \\\\
+\textbf{Interviewer:} And if you don’t mind me asking who is your credit card provider? As in, Visa, Mastercard, etc. \\
+\textbf{Interviewee:} I have a Mastercard.\\\\
+\textbf{Interviewer:} Got it. Last question: the city Montreal has recently introduced a zoning system in its metro. Do you prefer it over the single fare option that used to be in place before?\\
+\textbf{Interviewee:} I’d say, it’s a bit inconvenient to me. On the other hand, someone I know who used to live in Beaconsfield saw their fares drop a lot because they were included in the same zone as Montreal proper. Admittedly, this is for commuter trains, though, not the metro.\\\\
+\textbf{Interviewer:} Ok, but as far as the subway goes, you’d rather have just a single fare?\\
+\textbf{Interviewee:} Yes, that would be my preference.\\\\
+\textbf{Interviewer:} Ok, thank you so much for your answers. I think we’re done here. Your opinions will be of much help to us as we work on this project. \\
+\textbf{Interviewee:} Anytime. Thank you!
 \end{document}
 \end{document}

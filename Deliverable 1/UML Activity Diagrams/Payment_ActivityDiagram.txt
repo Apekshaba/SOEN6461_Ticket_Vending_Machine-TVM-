@@ -1,0 +1,19 @@
+@startuml
+title Payment Activity Diagram
+
+|Commuter|
+start
+:Choose a ticket or a card recharge menu;
+if (Selecting a specific recharge card or purchase ticket option) then (yes)
+  :Show available payment methods (cash or credit);
+  if (Method of Payment is Cash) then (yes)
+    :Give back the right change;
+  else (Method of Payment is Credit)
+    :Verify payment with bank;
+  endif
+  :Switch to receipt preference screen;
+else (no)
+  stop
+endif
+|Commuter|
+@enduml

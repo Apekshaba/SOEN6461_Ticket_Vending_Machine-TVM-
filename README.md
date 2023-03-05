@@ -29,6 +29,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. Description of UML Activity Diagram.
 3. Interview Questions.
 4. Conducting interviews in collaboration with the other team members.
+5. Latex report.
 
 ## Yashwanth
 
@@ -36,6 +37,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. UML Use case diagram.
 3. Use Case description.
 4. Conducting interviews in collaboration with the other team members.
+5. Latex report.
 
 ## Carlos Garcia
 

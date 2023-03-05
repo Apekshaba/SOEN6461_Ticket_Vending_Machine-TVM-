@@ -485,20 +485,26 @@ All actors, use cases, and their relationships are represented in a use case mod
 \section{Card Signup Activity Diagram}\hfill
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=170mm,scale=0.5]{images/Card_Signup.png}
+   \includegraphics[width=150mm,height=200mm,scale=0.5]{images/Card_Signup.png}
   \caption{Activity Diagram for iGo Card Signup}
 \end{figure}
 \section{Select Language Activity Diagram}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=190mm,scale=0.5]{images/select_language.jpg}
+   \includegraphics[width=150mm,height=210mm,scale=0.5]{images/select_language.jpg}
   \caption{Select Language Activity Diagram}
 \end{figure}
 \section{Purchase Ticket Activity Diagram}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=150mm,height=190mm,scale=0.5]{images/Purchase_Ticket_Activity.jpeg}
+   \includegraphics[width=150mm,height=210mm,scale=0.5]{images/Purchase_Ticket_Activity.jpeg}
   \caption{Purchase Ticket Activity Diagram}
+\end{figure}
+\section{Payment Activity Diagram}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=200mm,scale=0.5]{images/Payment_Activity_Diagram.png}
+  \caption{Payment Activity Diagram}
 \end{figure}
 \chapter{References}
 \begin{enumerate}
@@ -513,8 +519,6 @@ All actors, use cases, and their relationships are represented in a use case mod
   \item Google form which we used for interviews - \href{https://docs.google.com/forms/d/12D6sXLjWFCtpH7vW8L07wA6l39XUuOzsR9XzgtdqhwM/edit}{Google Form Link}
 \end{enumerate}
 \chapter{Appendix}
-\textbf{\LARGE{Interview Recordings (Drive Link):}}\\\\
-\url{https://drive.google.com/drive/folders/1Yacj_tL098LSFhWG8j1h0X6ZFnottpPd?usp=share_link}\\\\
 \textbf{\LARGE{Interview Questions}}\\\\
 \section{Interview-1}
 Date – 27-02-2023, 10:36 PM\\

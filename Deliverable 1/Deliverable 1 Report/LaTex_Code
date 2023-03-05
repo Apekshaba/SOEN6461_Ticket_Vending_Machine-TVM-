@@ -141,6 +141,159 @@ The domain model is grouped into four main categories in the form of package dia
     \item The \textit{machine} package includes classes for the machinery used in all parts of iGo, including processing different payment options, reading tickets and cards, as well as recharging cards and purchasing tickets. Classes involved are TVM, transit card reader, payment card reader, ticket dispenser, banknote receptacle, and ticket collector.
     \item The \textit{finance} package contains classes that manage the payment process in iGo when purchasing tickets and fares, as well as receipt management. These classes include including payment, invoice, contract, and payment partner.
 \end{enumerate}
+Understanding these relationships and cardinalities is crucial for ensuring the integrity and functionality of the system. Each class has unique attributes and behaviors that allow them to interact with one another, and by examining their relationships and cardinalities, we can gain a deeper understanding of how the system works.
+\begin{enumerate}
+    \item User
+    \\This class represents a user of the transportation system and contains information such as their ID, name, email, and contact details. There are two subclasses of User: Registered Commuter and Unregistered Commuter.
+    \begin{itemize}
+        \item Description of relationships
+        \begin{itemize}
+            \item User and Conductor have a one-to-one relationship, meaning that one user can be associated with one conductor.
+            \item User and Registered Commuter have a one-to-many relationship, indicating that a user can have multiple registered commuter accounts, but each registered commuter account can only belong to one user.
+        \end{itemize}
+    \end{itemize}
+
+\item Registered Commuter
+\\This class represents a commuter who has registered with the transportation service and has a TransitCard. This class is associated with the User class as it inherits the basic user information from it.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Registered Commuter and TransitCard have a one-to-one relationship, indicating that each registered commuter has only one transit card, and each transit card belongs to only one registered commuter.
+\end{itemize}
+\end{itemize}
+\item Conductor
+\\This class represents a conductor and contains information such as their schedule and license details. The Conductor class is associated with the StationTerminal class.
+\begin{itemize}
+    \item Description of relationships
+    \begin{itemize}
+        \item Conductor and StationTerminal have a one-to-many relationship, meaning that one conductor can be assigned to multiple station terminals, but each station terminal can only have one assigned conductor.
+    \end{itemize}
+\end{itemize}
+\item Station
+\\This class represents a station and contains information such as its name, location, and code. The Station class is associated with the StationTerminal class and is related to the TicketCollector Controller and Bank classes.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Station and StationTerminal have a one-to-many relationship, meaning that one station can have multiple station terminals, but each station terminal can only belong to one station.
+\end{itemize}
+\end{itemize}
+\item StationTerminal
+\\This class represent a single terminal inside a station. The StationTerminal class is associated with the Station class.
+\begin{itemize}
+    \item Description of relationships
+    \begin{itemize}
+        \item Unregistered Commuter and StationTerminal have a zero-to-one relationship, meaning that an unregistered commuter may or may not be associated with a station terminal.
+    \end{itemize}
+\end{itemize}
+\item TransitCard
+\\This class represents a transit card and contains information such as the card number and balance. The TransitCard class is associated with the Registered Commuter class and the Fare class.
+\begin{itemize}
+    \item Description of relationships
+    \begin{itemize}
+        \item Registered Commuter and TransitCard have a one-to-one relationship, indicating that each registered commuter has only one transit card, and each transit card belongs to only one registered commuter.
+        \item TransitCard and Fare have a many-to-one relationship, meaning that many transit cards can be associated with one fare.
+    \end{itemize}
+\end{itemize}
+\item TransitCardReader
+\\TransitCardReader class represents a device that can read TransitCards. This class is associated with the TVM class, as a TransitCardReader is typically found in a TVM (Ticket Vending Machine)
+\begin{itemize}
+    \item Description of relationships
+    \begin{itemize}
+        \item TransitCardReader and TransitCard have a one-to-one relationship, indicating that a transit card reader can only read one transit card.
+        \item TransitCardReader and TVM have a one-to-many relationship, meaning that a TVM can have multiple transit card readers, but each transit card reader can only belong to one TVM.
+    \end{itemize}
+\end{itemize}
+\item Fare
+\\This class represents the fare for a journey and contains information such as the fare amount and currency. The Fare class is associated with the Ticket and TransitCard classes.
+\item Ticket
+\\The Ticket class represents a ticket that a commuter can use to travel on the transit system. It contains the ticket number and the expiration date of the ticket.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Ticket and Fare have a many-to-one relationship, indicating that many tickets can be associated with one fare.
+\end{itemize}
+\end{itemize}
+\item TicketDispenser
+\\The TicketDispenser class represents a machine that issues tickets to commuters. It is responsible for generating new tickets with unique ticket numbers, and dispensing them to the commuter who requests them.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item TicketDispenser and Ticket have a one-to-many relationship, indicating that a ticket dispenser can dispense multiple tickets, but each ticket can only be dispensed by one ticket dispenser.
+\end{itemize}
+\end{itemize}
+\item TicketCollectorController
+\\The TicketCollectorController class represents the device used by conductors to collect tickets from commuters.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item TicketCollectorController and Ticket have a one-to-many relationship, indicating that a ticket collector controller can accept multiple tickets, but each ticket can only be accepted by one ticket collector controller.
+\item TicketCollectorController and Station have a one-to-many relationship, meaning that one ticket collector controller can be associated with multiple stations, but each station can only have multiple ticket collector controllers.
+\item TicketCollectorController and TransitCard have a zero-to-many relationship, meaning that a ticket collector controller may or may not be associated with a transit card.
+\end{itemize}
+\end{itemize}
+\item TVM
+\\This class represents a ticket vending machine and contains components such as a payment card reader, transit card reader, ticket dispenser, and banknote receptacle. The TVM class is associated with the Station class and TransitCardReader, PaymentCardReader, and TicketDispenser classes.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item TVM and Banknote Receptacle have a one-to-one relationship, indicating that a TVM can only have one banknote receptacle.
+\end{itemize}
+\end{itemize}
+\item Transaction
+\\This class represents a transaction and contains information such as the transaction ID, date, and payment details. The Transaction class is associated with the TransitCard, Fare, and Payment classes and is related to the Invoice and Bank classes.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Transaction and TransitCard have a many-to-one relationship, meaning that many transactions can be associated with one transit card.
+\item Transaction and Payment have a one-to-many relationship, indicating that one transaction can have multiple payments, and each payment can only belong to one transaction.
+\item Transaction and Invoice have a one-to-many relationship, indicating that one transaction can have multiple invoices, and each invoice can only belong to one transaction.
+\end{itemize}
+\end{itemize}
+\item Payment
+\\This class represents a payment and contains information such as the payment amount, currency, and payment partner. The Payment class is associated with the Transaction and Invoice classes and is related to the PaymentPartner class.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Payment and Transaction have a many-to-one relationship, indicating that many payments can be associated with one transaction.
+\item Payment and Invoice have a one-to-many relationship, indicating that one payment can have multiple invoices, and each invoice can only belong to one payment.
+\item Payment and PaymentPartner have a many-to-one relationship, meaning that many payments can be associated with one payment partner.
+\end{itemize}
+\end{itemize}
+\item PaymentPartner
+\\This class represents a payment partner and contains information such as their name, address, and contract details. The PaymentPartner class is associated with the Payment and Contract classes.
+\begin{itemize}
+    \item Description of relationships
+    \begin{itemize}
+        \item PaymentPartner and Payment have a one-to-many relationship, indicating that one payment partner can manage multiple payments, and each payment can only be managed by one payment partner.
+    \end{itemize}
+\end{itemize}
+\item PaymentCardReader
+\\The PaymentCardReader class represents a payment card reader machine, which is responsible for reading payment card information such as credit or debit card details.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item PaymentCardReader and TVM have a one-to-many relationship, meaning that a TVM can have multiple payment card readers, but each payment card reader can only belong to one TVM.
+\end{itemize}
+\end{itemize}
+\item Contract
+\\This class represents a contract and contains information such as the contract ID and details. The Contract class is associated with the PaymentPartner class.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Contract and PaymentPartner have a one-to-one relationship, indicating that each payment partner has only one contract, and each contract belongs to only one payment partner.
+\end{itemize}
+\end{itemize}
+\item Bank
+\\This class represents a bank and contains information such as its name, address, and BIC. The Bank class is associated with the Transaction class.
+\begin{itemize}
+\item Description of relationships
+\begin{itemize}
+\item Bank and Transaction have a one-to-many relationship, meaning that one bank can process multiple transactions.
+\end{itemize}
+\end{itemize}
+\item Machine
+\\Class that contains attributes like serial number, model, manufacturer. This class generalizes the PaymentCardReader, TVM, TransitCard Reader, Banknote Receptacle, TicketCollector Controller classes.
+\end{enumerate}
 \chapter{Problem 3}
 \section{Mind Map of iGO}
 \begin{figure}[h!]

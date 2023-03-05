@@ -148,13 +148,13 @@ The domain model is grouped into four main categories in the form of package dia
    \includegraphics[width=155mm,height=150mm,scale=0.5]{images/mindmap.png}
   \caption{Mind map of iGO}
 \end{figure}
-The mind map created by the team was an outcome of a brainstorming session on the various aspects of the TVM project. The central concept is the TVM itself and the first-order branches represent those matters that we found to be crucial to our design, namely Ease of Use, UX [User Experience] and Interactivity, Location, Pricing, Payments, Security, Accessibility, Ticketing, Best Global Practices and Extra Features.
+The mind map created by the team was an outcome of a brainstorming session on the various aspects of the TVM project. The central concept is the TVM itself and the first-order branches represent those matters that we found to be crucial to our design, namely Ease of Use, UX [User Experience] and Interactivity, Location, Pricing, Payments, Security, Accessibility, Ticketing, Best Global Practices and Extra Features. 
 \\\\
-Each subgraph has been distinctly colour-coded for readability purposes, and several visual cues (images) were added to expedite recognition and improve intuitive perception of the map by its actual and potential users. At the edges of the map, one can find the questions, styled as yellow sticky notes, that logically followed from the final nodes of each subbranch.
+Each subgraph has been distinctly colour-coded for readability purposes, and several visual cues (images) were added to expedite recognition and improve intuitive perception of the map by its actual and potential users. At the edges of the map, one can find the questions, styled as yellow sticky notes, that logically followed from the final nodes of each subbranch. 
 \\\\
-In addition, some branches guided the team in our choice of interviewees rather than resulted in a specific question. For example, when brainstorming best global practices we realized, with the help of the mind map, that we may need to interview a public transit user from a major city outside Quebec and Canada (the team was able to get hold of someone from Chicago).
+In addition, some branches guided the team in our choice of interviewees rather than resulted in a specific question. For example, when brainstorming best global practices we realized, with the help of the mind map, that we may need to interview a public transit user from a major city outside Quebec and Canada (the team was able to get hold of someone from Chicago). 
 \\\\
-The mind map produced offers several insights as concerns the team’s thinking process. For instance, some subbranches ended up being more crowded than others, which indicates the relative importance of certain matters to the project. To illustrate this point, a quick glance at the map will reveal that the matter of Payments was discussed more thoroughly and produced more ideas than most other areas of interest, which reflects the complexity associated with one of the most important core flows lying at the heart of the system.
+The mind map produced offers several insights as concerns the team’s thinking process. For instance, some subbranches ended up being more crowded than others, which indicates the relative importance of certain matters to the project. To illustrate this point, a quick glance at the map will reveal that the matter of Payments was discussed more thoroughly and produced more ideas than most other areas of interest, which reflects the complexity associated with one of the most important core flows lying at the heart of the system. 
 \\\\
 The questions summarizing our brainstorming and mind mapping session, as found at the edges of the map, were used for interview scripts, but were adapted as needed during the actual course of the meetings to ensure more natural interactions and high-quality insights.
 \section{Interviews}
@@ -302,7 +302,7 @@ All actors, use cases, and their relationships are represented in a use case mod
 \section{Use Case Diagram}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=180mm,height=210mm,scale=0.5]{images/use_case.png}
+   \includegraphics[width=180mm,height=210mm,scale=0.5]{images/Usecase_Updated.jpeg}
   \caption{Use Case Model}
 \end{figure}
 \chapter{Problem 5}
@@ -354,8 +354,7 @@ All actors, use cases, and their relationships are represented in a use case mod
   \item PANKAJ KAMTHAN (2023) “Negative Use Case Modeling”  - Section 8
   \item \url{https://www.lucidchart.com/pages/uml-activity-diagram}
   \item Carte OPUS. To obtain your photo OPUS card. 2023. \url{http://www.carteopus.info/}.
-  \item Google form which we used for interviews - \href{https://docs.google.com/forms/d/12D6sXLjWFCtpH7vW8L07wA6l39XUuOzsR9XzgtdqhwM/edit}{Google Form Link}
-  \item Interview Audio Recordings - \href{https://drive.google.com/drive/folders/1Yacj_tL098LSFhWG8j1h0X6ZFnottpPd}{Google Drive Audio Recordings folder}
+  \item Google form which we used for interviews - \href{https://docs.google.com/forms/d/12D6sXLjWFCtpH7vW8L07wA6l39XUuOzsR9XzgtdqhwM/edit}{Google Form Link} 
 \end{enumerate}
 \chapter{Appendix}
 \textbf{\LARGE{Interview Recordings (Drive Link):}}\\\\
@@ -445,7 +444,7 @@ Date – 04-03-2023, 09:13 PM\\
 \textbf{Interviewee:} Mariya Milovanova (email: m.milovanova@gmail.com)\\\\
 \textbf{Interviewer:} Hi, thank you for accepting our invitation for interview. This should be relatively quick and, for now, we don’t expect any follow ups. We plan on recording this interview in writing, please let us know if you have any concerns.\\
 \textbf{Interviewee:} Hi, no problem. Glad to be of help. \\\\
-\textbf{Interviewer:} Ok, first of all, the purpose of this meeting is to ask you question pertaining to a potential ticket vending system with a focus on the subway. We are gathering people’s experiences and opinions to be able to ensure a design that meets the most important expectations.\\
+\textbf{Interviewer:} Ok, first of all, the purpose of this meeting is to ask you question pertaining to a potential ticket vending system with a focus on the subway. We are gathering people’s experiences and opinions to be able to ensure a design that meets the most important expectations.\\ 
 \textbf{Interviewee:} Got it. Go ahead then. \\\\
 \textbf{Interviewer:} Ok, to begin with, what is your overall experience purchasing tickets at subway stations? Do you find it to be easy and relatively fast or unneccessarily complicated and long?\\
 \textbf{Interviewee:} Well, I do mostly use my OPUS card that I recharge once a month. Every time it’s quite hectic since most people do it on the first day of the month and the lineups can be quite big. \\\\

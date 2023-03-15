@@ -78,3 +78,5 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. Merging all the documents in the Latex Format.
 3. Use Case Diagram
 4. Conducting interviews in collaboration with the other team members.
+
+## Deliverable 2

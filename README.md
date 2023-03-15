@@ -38,7 +38,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 
 1. Problem Domain Model.
 2. Description of Problem Domain Model.
-3. Interview Issues.
+3. Interview Questions.
 4. Conducting interviews in collaboration with the other team members.
 
 ## Apekshaba Gohil
@@ -80,3 +80,48 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 4. Conducting interviews in collaboration with the other team members.
 
 ## Deliverable 2
+
+## Pratik Gondaliya
+
+1. Structural Design Model.
+2. CRC card model.
+3. Low level solution domain model implementation.
+4. Latex report.
+
+
+## Apekshaba Gohil
+
+1. Behavioral Design Model.
+2. CRC card model.
+3. Low level solution domain model implementation.
+4. Latex report.
+
+## Yashwanth
+
+1. Structural Design Model.
+2. Low level solution domain model implementation.
+3. iGo Testing
+4. Latex report.
+
+## Carlos Garcia
+
+1. Behavioral Design Model.
+2. Low level solution domain model implementation.
+3. iGo Testing
+4. Latex report
+
+## Ernesto Garsiya Melikhov
+
+1. Behavioral Design Model.
+2. Low level solution domain model implementation.
+3. UML Sequence Diagrams
+4. Latex report
+
+## Amro Elbahrawy
+
+1. Structural Design Model.
+2. Low level solution domain model implementation.
+3. iGo Testing
+4. Latex report
+
+

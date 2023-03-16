@@ -87,6 +87,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. CRC card model.
 3. Low level solution domain model implementation.
 4. Latex report.
+5. Make Payment Use Case. 
 
 
 ## Apekshaba Gohil
@@ -95,6 +96,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. CRC card model.
 3. Low level solution domain model implementation.
 4. Latex report.
+5. Make Payment Use Case.
 
 ## Yashwanth
 
@@ -102,6 +104,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. Low level solution domain model implementation.
 3. iGo Testing
 4. Latex report.
+5. Purchase Ticket Use Case.
 
 ## Carlos Garcia
 
@@ -109,6 +112,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. Low level solution domain model implementation.
 3. iGo Testing
 4. Latex report
+5. Recharge Card Use Case.
 
 ## Ernesto Garsiya Melikhov
 
@@ -116,6 +120,7 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. Low level solution domain model implementation.
 3. UML Sequence Diagrams
 4. Latex report
+5. Purchase Ticket Use Case.
 
 ## Amro Elbahrawy
 
@@ -123,5 +128,6 @@ Amro Elbahrawy: 40221760, Email ID: am_elbah@live.concordia.ca
 2. Low level solution domain model implementation.
 3. iGo Testing
 4. Latex report
+5. Recharge Card Use Case.
 
 

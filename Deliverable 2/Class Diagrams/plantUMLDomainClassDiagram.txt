@@ -1,0 +1,134 @@
+@startuml
+skinparam class {
+    BackgroundColor FloralWhite
+    BorderColor Black
+}
+
+package user{
+  class Registered_Commuter {
+    -TransitCard transitCard
+  }
+  
+  class User{
+    -int userId
+    -String fname
+    -String lname
+    -String email
+    -int contact
+  }
+  
+  class Unregistered_Commuter{
+    
+  }
+  
+  class Conductor{
+    -String schedule
+    -String licenseNumber
+    -String licenseType
+  }
+}
+
+package business{
+
+  
+  class Ticket {
+    -int ticketNumber
+    -Date expirationDate
+  }
+  
+  class Fare {
+    -String description
+    -float amount
+    -String currency
+  }
+}
+
+package machine {
+  class Machine{
+    -String serialNumber
+    -String model
+    -String manufacturer
+  }
+  
+  class TVM {
+    -PaymentCardReader paymentReader
+    -TransitCardReader cardReader
+    -TicketDispenser ticketDispenser
+    -Banknote_Receptacle banknoteReceptacle
+    -Station station
+  }
+
+
+  class TransitCard {
+    -String cardNumber
+    -float balance
+  }
+
+
+}
+
+package finance{
+
+  class BillingProcessor{
+    +Invoice: createInvoice(int, Transaction, timestamp)
+    +void: validate()
+    +void : reject()
+  }
+  class Transaction {
+    -int transactionId
+    -Date transactionDate
+    -Payment payment_details
+    -String status
+  }
+  
+  class PurchaseView{
+    +View purchase_view()
+    +void : displayPaymentInformation(Payment)
+    +void : displayInvoice(Invoice)
+  }
+
+
+
+  class TransactionController{
+    +Payment : createPaymentDetails(User, Fare, PaymentPartner, String)
+    +Transaction : createTransaction(int, Date, Payment) 
+  }
+
+  class Payment {
+    -User user
+    -Fare fare
+    -PaymentPartner partner
+    -String type
+  }
+  
+  class Invoice{
+    -int invoiceId
+    -Transaction transaction
+    -Timestamp transactionDate
+  }
+  
+
+  
+  class PaymentPartner {
+    -String name
+    -String address
+    -Date startedAt
+    -Contract contract
+    +void : validatePaymentDetails(Payment)
+    +void : validate()
+    +void : reject()
+  }
+  
+
+}
+
+User <|-- Conductor
+User <|-- Registered_Commuter
+Ticket "0...*" <-- "1" Fare
+TransitCard "0...*" <-- "1" Fare
+Transaction "0...*" -- "1" TransitCard: Belongs to >
+Transaction "1..*" - "1..*" Payment
+(Transaction, Payment) .. Invoice
+PaymentPartner --> "1..*" Payment : Manages
+TransitCard "1" --o "1" Registered_Commuter
+@enduml

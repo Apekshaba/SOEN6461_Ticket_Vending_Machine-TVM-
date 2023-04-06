@@ -6,7 +6,7 @@ skinparam class {
 
 package user{
   class Registered_Commuter {
-    -TransitCard transitCard
+    -iGoCard transitCard
   }
   
   class User{
@@ -15,6 +15,7 @@ package user{
     -String lname
     -String email
     -int contact
+    -String category
   }
   
   class Unregistered_Commuter{
@@ -44,22 +45,14 @@ package business{
 }
 
 package machine {
-  class Machine{
-    -String serialNumber
-    -String model
-    -String manufacturer
-  }
   
   class TVM {
-    -PaymentCardReader paymentReader
-    -TransitCardReader cardReader
-    -TicketDispenser ticketDispenser
-    -Banknote_Receptacle banknoteReceptacle
-    -Station station
+    -int id
+    -String location
   }
 
 
-  class TransitCard {
+  class iGoCard {
     -String cardNumber
     -float balance
   }
@@ -87,19 +80,19 @@ package finance{
     +void : displayInvoice(Invoice)
   }
 
-
-
-  class TransactionController{
-    +Payment : createPaymentDetails(User, Fare, PaymentPartner, String)
-    +Transaction : createTransaction(int, Date, Payment) 
-  }
-
   class Payment {
     -User user
     -Fare fare
     -PaymentPartner partner
     -String type
   }
+
+  class TransactionController{
+    +Payment : createPaymentDetails(User, Fare, PaymentPartner, String)
+    +Transaction : createTransaction(int, Date, Payment) 
+  }
+
+
   
   class Invoice{
     -int invoiceId
@@ -125,10 +118,11 @@ package finance{
 User <|-- Conductor
 User <|-- Registered_Commuter
 Ticket "0...*" <-- "1" Fare
-TransitCard "0...*" <-- "1" Fare
-Transaction "0...*" -- "1" TransitCard: Belongs to >
+iGoCard "0...*" <-- "1" Fare
+Transaction "0...*" -- "1" iGoCard: Belongs to >
+Transaction "0...*" -- "1" Ticket: Belongs to >
 Transaction "1..*" - "1..*" Payment
 (Transaction, Payment) .. Invoice
 PaymentPartner --> "1..*" Payment : Manages
-TransitCard "1" --o "1" Registered_Commuter
+iGoCard "1" --o "1" Registered_Commuter
 @enduml

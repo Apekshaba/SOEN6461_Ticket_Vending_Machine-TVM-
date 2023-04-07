@@ -1,0 +1,104 @@
+@startuml
+skinparam class {
+    BackgroundColor FloralWhite
+    BorderColor Black
+}
+
+package user{
+  class Registered_Commuter {
+    -iGoCard transitCard
+    +iGoCard: getiGoCard()
+  }
+  
+  class User{
+    -int userId
+    -String fname
+    -String lname
+    -String email
+    -int contact
+    -String category
+    +User: getUserInformation()
+
+  }
+  
+  class Unregistered_Commuter{
+    
+  }
+  
+  class Conductor{
+    -String schedule
+    -String licenseNumber
+    -String licenseType
+  }
+}
+
+package business{
+
+  
+  class Ticket {
+    -int ticketNumber
+    -Date expirationDate
+    +void: addFare(Fare)
+  }
+  
+  class Fare {
+    -String description
+    -float amount
+    -String currency
+    +Fare: addNewFare(Fare)
+  }
+  
+    class iGoCard {
+    -String cardNumber
+    -float balance
+    +void: recharge(Fare)
+  }
+  
+}
+
+package machine {
+  
+  class TVM {
+    -int id
+    -String location
+  }
+
+
+
+
+
+}
+
+package finance{
+
+  class BillingProcessor{
+    +Invoice: createInvoice(int, Transaction, timestamp)
+    +void: validate()
+    +void : reject()
+  }
+  class Transaction {
+    -int transactionId
+    -Date transactionDate
+    -Payment payment_details
+    -String status
+  }
+  
+  class PurchaseView{
+    +View purchase_view()
+    +void : displayPaymentInformation(Payment)
+    +void : displayInvoice(Invoice)
+  }
+
+  class Payment {
+    -User user
+    -Fare fare
+    -PaymentPartner partner
+    -String type
+    +PaymentPartner: getPaymentPartner()
+  }
+
+  class TransactionController{
+    -PurchaseView view
+    +Payment : createPaymentDetails(User, Fare, PaymentPartner, String)
+    +Transaction : createTransaction(int, Date, Payment) 
+  }

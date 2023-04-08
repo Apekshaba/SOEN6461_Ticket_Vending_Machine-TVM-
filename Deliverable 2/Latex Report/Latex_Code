@@ -575,7 +575,6 @@ root.mainloop()
   \caption{iGO - Weekend Pass Checkout screen}
 \end{figure}
 
-
 \begin{figure}[h!]
   \centering
    \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/16.jpg}

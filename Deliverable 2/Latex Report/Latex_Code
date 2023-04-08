@@ -5,7 +5,6 @@
 \usepackage{makeidx}
 \usepackage{listings} % For Code Formatting
 \usepackage{tabularx}
-\usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{titlesec}
 \newcommand{\asection}[2]{
@@ -23,6 +22,7 @@
 \usepackage{algorithm}
 \usepackage[table]{xcolor}
 \usepackage{tabularx}
+
 \begin{document}
 \begin{titlepage}
    \begin{center}
@@ -111,7 +111,7 @@
 }
 \lstset{style=mystyle}
 \begin{enumerate}
-\item \textbf{Select Language screen:} The first screen a user will see is "Language options" Since a large group of English and French-speaking people is expected to be the potential users. two languages(English and French) are displayed to choose between:\\
+\item \textbf{Select Language screen:} The first screen a user will see as soon as they sign up is "Language options" Since a large group of English and French-speaking people are expected to be the potential users. two languages(English and French) are displayed to choose between:\\
 \begin{lstlisting}[language=Python]
 def select_language_display(username):
     print("Display Select Langauge:"+username)
@@ -123,8 +123,8 @@ def select_language_display(username):
     heading.place(x=80,y=5)
     Button(frame,width=25,pady=7,text="English",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: English_Language(username)).place(x=25,y=107)
     Button(frame,width=25,pady=7,text="French",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: French_Language(username)).place(x=30,y=170)
-\end{lstlisting}\\
-\item \textbf{iGO Menu:} The below method will display the iGO Menu:\\
+\end{lstlisting}
+\item \textbf{iGO Menu:} The method shown below will display the iGO passes and tickets menu with prices distributed based on the age and priorities:\\
 \begin{lstlisting}[language=Python]
 def Select_Plans(username):
     print("Display Select Plans:"+username)
@@ -139,8 +139,8 @@ def Select_Plans(username):
     Button(frame,width=25,pady=7,text="Day Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Day_pass(username)).place(x=35,y=233)
     Button(frame,width=25,pady=7,text="Weekend Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass(username)).place(x=40,y=296)
     Button(frame,width=25,pady=7,text="One Way Ticket",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass(username)).place(x=45,y=359)
-\end{lstlisting}\\
-\item \textbf{Monthly Pass:} The below method will display the details of the monthly pass:
+\end{lstlisting}
+\item \textbf{Monthly Pass:} The below method will display the details of the monthly pass:\\
 \begin{lstlisting}[language=Python]
 def Monthly_pass(username):
     print("Display Monthly Pass:"+username)
@@ -154,7 +154,7 @@ def Monthly_pass(username):
         button = Button(frame,width=25,pady=7,text="Make Payment: $50",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
     else:
         button = Button(frame,width=25,pady=7,text="Make Payment: $60",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
-\end{lstlisting}\\
+\end{lstlisting}
 \item \textbf{Weekly Pass:} The below method will display the details of the weekly pass:\\
 \begin{lstlisting}[language=Python]
 def Weekly_pass(username):
@@ -169,8 +169,8 @@ def Weekly_pass(username):
         button = Button(frame,width=25,pady=7,text="Make Payment: $10",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
     else:
         button = Button(frame,width=25,pady=7,text="Make Payment: $15",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
-\end{lstlisting}\\
-\item \textbf{Day Pass:} The below method will display the details of the Day pass:
+\end{lstlisting}
+\item \textbf{Day Pass:} The below method will display the details of the Day pass:\\
 \begin{lstlisting}[language=Python]
 def Day_pass(username):    
     print("Display Day Pass:"+username)
@@ -189,8 +189,8 @@ def Day_pass(username):
     tickets.bind('<FocusOut>',on_leave)
     Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
     button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
-\end{lstlisting}\\
-\item \textbf{Weekend Pass:} The below method will display the details of the Weekend pass:
+\end{lstlisting}
+\item \textbf{Weekend Pass:} The below method will display the details of the Weekend pass\\
 \begin{lstlisting}[language=Python]
 def Weekend_pass(username):
     print("Display Weekend Pass:"+username)
@@ -204,7 +204,7 @@ def Weekend_pass(username):
         button = Button(frame,width=25,pady=7,text="Make Payment: $4",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
     else:
         button = Button(frame,width=25,pady=7,text="Make Payment: $5",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
-\end{lstlisting}\\
+\end{lstlisting}
 \item \textbf{One Way Ticket:} The below method will display the details of one-way ticket:\\
 \begin{lstlisting}[language=Python]
 def One_way_pass(username):
@@ -224,7 +224,7 @@ def One_way_pass(username):
     tickets.bind('<FocusOut>',on_leave)
     Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
     button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
-\end{lstlisting}\\
+\end{lstlisting}
 \item \textbf{Checkout screen:} The below methods will calculate the price for the selected tickets/pass and then display on the screen\\
 \begin{lstlisting}[language=Python]
 def tickets_calculation(tickets,username):
@@ -242,7 +242,7 @@ def tickets_calculation(tickets,username):
         total_cost = float(no_tickets) * 2.99
         button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
         print(total_cost)
-\end{lstlisting}\\
+\end{lstlisting}
 \item \textbf{Payment Options:} The below method will ask user to select debit/credit or Cash for payment\\
 \begin{lstlisting}[language=Python]
 def creditdebit(username):
@@ -257,7 +257,7 @@ def creditdebit(username):
     # Insert code here to process the payment, e.g. call an API or perform necessary actions
     messagebox.showinfo("Payment Success", "Payment has been successfully processed!")
     Button(frame,width=25,pady=7,text="Print Invoice",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice(username)).place(x=40,y=107)
-\end{lstlisting}\\
+\end{lstlisting}
 \item \textbf{Select payment screen:} The below method will display the payment screen\\
 \begin{lstlisting}[language=Python]
 def select_payment_option(username):
@@ -270,7 +270,7 @@ def select_payment_option(username):
     heading.place(x=100,y=5)
     Button(frame,width=25,pady=7,text="Credit/Debit Card",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: creditdebit(username)).place(x=40,y=107)
     Button(frame,width=25,pady=7,text="Cash",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00").place(x=40,y=170)
-\end{lstlisting}\\
+\end{lstlisting}
 \item \textbf{Print Invoice}: The below method will print the Invoice of the ticket after the successful payment by the user\\
 \begin{lstlisting}[language=Python]
 def printinvoice(username):
@@ -278,10 +278,10 @@ def printinvoice(username):
     messagebox.showinfo("Printing Your Invoice", "Printing is under process!!")
     # Insert code here to process the payment, e.g. call an API or perform necessary actions
     messagebox.showinfo("Printing Done", "Printing has been successfully completed!")
-\end{lstlisting}\\
+\end{lstlisting}
 \end{enumerate}
 \asection{2}{Exception Handling}
-The below code will validate the correctness of Username and password
+The below code will validate the correctness of the Username and password, as shown here if the username and password is not entered or entered wrong than the user will be prompted by "Invalid Username and Password"\\
 \begin{lstlisting}[language=Python]
 def signin():
     username = user.get()

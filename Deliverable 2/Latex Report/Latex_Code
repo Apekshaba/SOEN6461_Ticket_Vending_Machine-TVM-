@@ -63,7 +63,18 @@
   \caption{CRC Card Model}
 \end{figure}
 \chapter{Problem 7}
-\section{Low-level Solution Domain Model}
+\asection{1}{Low-level Solution Domain Model}
+\asection{1}{Sequence Diagrams}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=130mm,scale=0.5]{D2-images/iGoSeq.jpg}
+  \caption{iGO Sequence Diagram}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=130mm,scale=0.5]{D2-images/Payment_Sequence.png}
+  \caption{Payment Sequence Diagram}
+\end{figure}
 \chapter{Problem 8}
 \asection{1}{Python Code}
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -91,115 +102,36 @@
 }
 \lstset{style=mystyle}
 \begin{enumerate}
-\item \textbf{Print Invoice in English}: The below method will print the Invoice of the ticket after the successful payment by the user.
+\item \textbf{Select Language screen:} The below method will will allow the user to select the language - user is provided with two languages(English and French):\\
 \begin{lstlisting}[language=Python]
-def printinvoice(username):
-    print("Display Print Invoice Option:"+username)
-    messagebox.showinfo("Printing Your Invoice", "Printing is under process!!")
-    # Insert code here to process the payment, e.g. call an API or perform necessary actions
-    messagebox.showinfo("Printing Done", "Printing has been successfully completed!")
-\end{lstlisting}\\
-\item \textbf{Print Invoice in French:} The below method will print the Invoice in french if the user selects the french as the language option.\\
-\begin{lstlisting}[language=Python]
-def printinvoice_fr(username):
-    print("Display Print Invoice Option:"+username)
-    messagebox.showinfo("Impression de votre facture", "L'impression est en cours de traitement !!")
-    # Insert code here to process the payment, e.g. call an API or perform necessary actions
-    messagebox.showinfo("Impression terminée", "L'impression a été effectuée avec succès !")
-\end{lstlisting}\\
-\item \textbf{Payment Options:} The below method will ask user to select debit/credit or Cash for payment.
-\begin{lstlisting}[language=Python]
-def creditdebit(username):
-    print("Display Credit Debit Option:"+username)
+def select_language_display(username):
+    print("Display Select Langauge:"+username)
     root.img = PhotoImage(file='login.png')
     Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=440,y=70)
-    heading = Label(frame, text='Almost Done!!!!!', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    messagebox.showinfo("Payment Processing", "Payment is being processed...")
-    # Insert code here to process the payment, e.g. call an API or perform necessary actions
-    messagebox.showinfo("Payment Success", "Payment has been successfully processed!")
-    Button(frame,width=25,pady=7,text="Print Invoice",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice(username)).place(x=40,y=107)
-\end{lstlisting}\\
-\item \textbf{Payment Options in French:} The below method will display the Payment options in french.
-\begin{lstlisting}[language=Python]
-def creditdebit_fr(username):
-    print("Display Credit Debit Option:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=440,y=70)
-    heading = Label(frame, text='Presque terminé!!!!!', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    messagebox.showinfo("Traitement du paiement", "Le paiement est en cours de traitement...")
-    # Insérer le code ici pour traiter le paiement, par exemple, appeler une API ou effectuer les actions nécessaires
-    messagebox.showinfo("Paiement réussi", "Le paiement a été traité avec succès!")
-    Button(frame,width=25,pady=7,text="Imprimer la facture",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice_fr(username)).place(x=40,y=107)
-\end{lstlisting}\\
-\item \textbf{Select payment screen in English:} The below method will display the payment screen in English:
-\begin{lstlisting}[language=Python]
-def select_payment_option(username):
-    print("Display Payment Option:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=440,y=70)
-    heading = Label(frame, text='Payment Options', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    Button(frame,width=25,pady=7,text="Credit/Debit Card",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: creditdebit(username)).place(x=40,y=107)
-    Button(frame,width=25,pady=7,text="Cash",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00").place(x=40,y=170)
-\end{lstlisting}\\
-\item \textbf{Select payment screen in French:} The below method will display the payment screen in French:\\
-\begin{lstlisting}[language=Python]
-def select_payment_option_fr(username):
-    print("Display Payment Option:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=440,y=70)
-    heading = Label(frame, text='Options de Paiement', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    Button(frame,width=25,pady=7,text="Carte de crédit/débit",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: creditdebit_fr(username)).place(x=40,y=107)
-    Button(frame,width=25,pady=7,text="Espèces",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00").place(x=40,y=170)
-\end{lstlisting}\\
-\item \textbf{Checkout screen in English:} The below methods will calculate the price for the selected tickets/pass and then display on the screen\\
-\begin{lstlisting}[language=Python]
-def tickets_calculation(tickets,username):
-    print("Monthly Plan:"+username)
-    no_tickets = tickets.get()
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
+    frame = Frame(root,width=350,height=350,bg="white")
     frame.place(x=480,y=70)
-    if username == 'child' or username == 'senior citizens':
-        total_cost = float(no_tickets) * 1.99
-        print(total_cost)
-        button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
-    else:
-        total_cost = float(no_tickets) * 2.99
-        button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
-        print(total_cost)
+    heading = Label(frame, text='Select Language', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=80,y=5)
+    Button(frame,width=25,pady=7,text="English",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: English_Language(username)).place(x=25,y=107)
+    Button(frame,width=25,pady=7,text="French",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: French_Language(username)).place(x=30,y=170)
 \end{lstlisting}\\
-\item \textbf{Checkout screen in French:} The below methods will calculate the price for the selected tickets/pass and then display on the screen\\
+\item \textbf{iGO Menu:} The below method will display the iGO Menu:\\
 \begin{lstlisting}[language=Python]
-def tickets_calculation_fr(tickets,username):
-    print("Monthly Plan:"+username)
-    no_tickets = tickets.get()
+def Select_Plans(username):
+    print("Display Select Plans:"+username)
     root.img = PhotoImage(file='login.png')
     Label(root,image=img,bg='white').place(x=50,y=50)
     frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=480,y=70)
-    if username == 'child' or username == 'senior citizens':
-        total_cost = float(no_tickets) * 1.99
-        print(total_cost)
-        button = Button(frame,width=25,pady=7,text="Effectuer le paiement de "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-    else:
-        total_cost = float(no_tickets) * 2.99
-        button = Button(frame,width=25,pady=7,text="Effectuer le paiement de "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-        print(total_cost)
+    frame.place(x=450,y=70)
+    heading = Label(frame, text='Select Language', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=70,y=5)
+    Button(frame,width=25,pady=7,text="Monthly Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Monthly_pass(username)).place(x=25,y=107)
+    Button(frame,width=25,pady=7,text="Weekly Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekly_pass(username)).place(x=30,y=170)
+    Button(frame,width=25,pady=7,text="Day Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Day_pass(username)).place(x=35,y=233)
+    Button(frame,width=25,pady=7,text="Weekend Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass(username)).place(x=40,y=296)
+    Button(frame,width=25,pady=7,text="One Way Ticket",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass(username)).place(x=45,y=359)
 \end{lstlisting}\\
-\item \textbf{Display Monthly Pass in English:} The below method will display the details of the monthly pass:
+\item \textbf{Monthly Pass:} The below method will display the details of the monthly pass:
 \begin{lstlisting}[language=Python]
 def Monthly_pass(username):
     print("Display Monthly Pass:"+username)
@@ -214,22 +146,7 @@ def Monthly_pass(username):
     else:
         button = Button(frame,width=25,pady=7,text="Make Payment: $60",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
 \end{lstlisting}\\
-\item \textbf{Display Monthly Pass in French:} The below method will display the details of the monthly pass:
-\begin{lstlisting}[language=Python]
-def Monthly_pass_fr(username):
-    print("Display Monthly Pass:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=480,y=70)
-    heading = Label(frame, text='Monthly Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    if username == 'child' or username == 'senior citizens':
-        button = Button(frame,width=25,pady=7,text="Paiement: 50 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-    else:
-        button = Button(frame,width=25,pady=7,text="Paiement: 60 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-\end{lstlisting}\\
-\item \textbf{Display Weekly Pass in English:} The below method will display the details of the weekly pass:
+\item \textbf{Weekly Pass:} The below method will display the details of the weekly pass:\\
 \begin{lstlisting}[language=Python]
 def Weekly_pass(username):
     print("Display Weekly Pass:"+username)
@@ -244,22 +161,7 @@ def Weekly_pass(username):
     else:
         button = Button(frame,width=25,pady=7,text="Make Payment: $15",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
 \end{lstlisting}\\
-\item \textbf{Display Weekly Pass in French:} The below method will display the details of the weekly pass:
-\begin{lstlisting}[language=Python]
-def Weekly_pass_fr(username):
-    print("Display Weekly Pass:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=440,y=70)
-    heading = Label(frame, text='Pass Hebdomadaire', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    if username == 'child' or username == 'senior citizens':
-        button = Button(frame,width=25,pady=7,text="Paiement: $10",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-    else:
-        button = Button(frame,width=25,pady=7,text="Paiement: $15",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-\end{lstlisting}\\
-\item \textbf{Display Day Pass in English:} The below method will display the details of the Day pass:
+\item \textbf{Day Pass:} The below method will display the details of the Day pass:
 \begin{lstlisting}[language=Python]
 def Day_pass(username):
     print("Display Day Pass:"+username)
@@ -279,27 +181,7 @@ def Day_pass(username):
     Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
     button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
 \end{lstlisting}\\
-\item \textbf{Display Day Pass in French:} The below method will display the details of the Day pass:
-\begin{lstlisting}[language=Python]
-def Day_pass_fr(username):
-    print("Display Day Pass:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=480,y=70)
-    heading = Label(frame, text='Pass Jour', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    No_ticket = Label(frame, text = "Nombre de billets",fg="#57a1f8",font=('Microsoft YaHei UI Light',15,'bold'))
-    No_ticket.place(x = 30,y = 70)
-    tickets = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
-    tickets.place(x=150,y=73)
-    tickets.insert(0,'')
-    tickets.bind('<FocusIn>',on_enter)
-    tickets.bind('<FocusOut>',on_leave)
-    Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
-    button = Button(frame,width=25,pady=7,text="Procéder au paiement",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation_fr(tickets,username)).place(x=35,y=120)
-\end{lstlisting}\\
-\item \textbf{Display Weekend Pass in English:} The below method will display the details of the Weekend pass:\\
+\item \textbf{Weekend Pass:} The below method will display the details of the Weekend pass:
 \begin{lstlisting}[language=Python]
 def Weekend_pass(username):
     print("Display Weekend Pass:"+username)
@@ -314,22 +196,7 @@ def Weekend_pass(username):
     else:
         button = Button(frame,width=25,pady=7,text="Make Payment: $5",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
 \end{lstlisting}\\
-\item \textbf{Display Weekend Pass in French:} The below method will display the details of the Weekend pass:\\
-\begin{lstlisting}[language=Python]
-def Weekend_pass_fr(username):
-    print("Display Weekend Pass:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=440,y=70)
-    heading = Label(frame, text='passe week-end', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
-    if username == 'child' or username == 'senior citizens':
-        button = Button(frame,width=25,pady=7,text="Effectuer le paiement : 4 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-    else:
-        button = Button(frame,width=25,pady=7,text="Effectuer le paiement : 5 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
-\end{lstlisting}\\
-\item \textbf{Display One Way Ticket:} The below method will display the details of one-way ticket:\\
+\item \textbf{One Way Ticket:} The below method will display the details of one-way ticket:\\
 \begin{lstlisting}[language=Python]
 def One_way_pass(username):
     print("Display One Day Pass:"+username)
@@ -349,71 +216,61 @@ def One_way_pass(username):
     Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
     button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
 \end{lstlisting}\\
-\item \textbf{Display One Way Ticket in French:} The below method will display the details of one-way ticket:\\
+\item \textbf{Checkout screen:} The below methods will calculate the price for the selected tickets/pass and then display on the screen\\
 \begin{lstlisting}[language=Python]
-def One_way_pass_fr(username):
-    print("Display One Day Pass:"+username)
+def tickets_calculation(tickets,username):
+    print("Monthly Plan:"+username)
+    no_tickets = tickets.get()
     root.img = PhotoImage(file='login.png')
     Label(root,image=img,bg='white').place(x=50,y=50)
     frame = Frame(root,width=400,height=550,bg="white")
     frame.place(x=480,y=70)
-    heading = Label(frame, text='Pass Aller Simple', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    if username == 'child' or username == 'senior citizens':
+        total_cost = float(no_tickets) * 1.99
+        print(total_cost)
+        button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+    else:
+        total_cost = float(no_tickets) * 2.99
+        button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+        print(total_cost)
+\end{lstlisting}\\
+\item \textbf{Payment Options:} The below method will ask user to select debit/credit or Cash for payment\\
+\begin{lstlisting}[language=Python]
+def creditdebit(username):
+    print("Display Credit Debit Option:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Almost Done!!!!!', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
     heading.place(x=100,y=5)
-    No_ticket = Label(frame, text = "Nombre de billets",fg="#57a1f8",font=('Microsoft YaHei UI Light',15,'bold'))
-    No_ticket.place(x = 30,y = 70)
-    tickets = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
-    tickets.place(x=150,y=73)
-    tickets.insert(0,'')
-    tickets.bind('<FocusIn>',on_enter)
-    tickets.bind('<FocusOut>',on_leave)
-    Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
-    button = Button(frame,width=25,pady=7,text="Procéder au paiement",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation_fr(tickets,username)).place(x=35,y=120)
+    messagebox.showinfo("Payment Processing", "Payment is being processed...")
+    # Insert code here to process the payment, e.g. call an API or perform necessary actions
+    messagebox.showinfo("Payment Success", "Payment has been successfully processed!")
+    Button(frame,width=25,pady=7,text="Print Invoice",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice(username)).place(x=40,y=107)
 \end{lstlisting}\\
-\item \textbf{iGO Menu in English:} The below method will display the iGO Menu in English:\\
+\item \textbf{Select payment screen:} The below method will display the payment screen\\
 \begin{lstlisting}[language=Python]
-def Select_Plans(username):
-    print("Display Select Plans:"+username)
+def select_payment_option(username):
+    print("Display Payment Option:"+username)
     root.img = PhotoImage(file='login.png')
     Label(root,image=img,bg='white').place(x=50,y=50)
     frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=450,y=70)
-    heading = Label(frame, text='Select Language', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=70,y=5)
-    Button(frame,width=25,pady=7,text="Monthly Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Monthly_pass(username)).place(x=25,y=107)
-    Button(frame,width=25,pady=7,text="Weekly Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekly_pass(username)).place(x=30,y=170)
-    Button(frame,width=25,pady=7,text="Day Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Day_pass(username)).place(x=35,y=233)
-    Button(frame,width=25,pady=7,text="Weekend Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass(username)).place(x=40,y=296)
-    Button(frame,width=25,pady=7,text="One Way Ticket",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass(username)).place(x=45,y=359)
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Payment Options', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    Button(frame,width=25,pady=7,text="Credit/Debit Card",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: creditdebit(username)).place(x=40,y=107)
+    Button(frame,width=25,pady=7,text="Cash",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00").place(x=40,y=170)
 \end{lstlisting}\\
-\item \textbf{iGO Menu in French:} The below method will display the iGO Menu in French:\\
+\item \textbf{Print Invoice}: The below method will print the Invoice of the ticket after the successful payment by the user\\
 \begin{lstlisting}[language=Python]
-def Select_Plans_fr(username):
-    print("Display Select Plans:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=450,y=70)
-    heading = Label(frame, text='Sélectionnez la langue', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=70,y=5)
-    Button(frame,width=25,pady=7,text="Pass mensuel",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Monthly_pass_fr(username)).place(x=25,y=107)
-    Button(frame,width=25,pady=7,text="Pass hebdomadaire",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekly_pass_fr(username)).place(x=30,y=170)
-    Button(frame,width=25,pady=7,text="Pass journalier",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Day_pass_fr(username)).place(x=35,y=233)
-    Button(frame,width=25,pady=7,text="Pass week-end",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass_fr(username)).place(x=40,y=296)
-    Button(frame,width=25,pady=7,text="Billet aller simple",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass_fr(username)).place(x=45,y=359)
+def printinvoice(username):
+    print("Display Print Invoice Option:"+username)
+    messagebox.showinfo("Printing Your Invoice", "Printing is under process!!")
+    # Insert code here to process the payment, e.g. call an API or perform necessary actions
+    messagebox.showinfo("Printing Done", "Printing has been successfully completed!")
 \end{lstlisting}\\
-\item \textbf{Select Language screen:} The below method will will allow the user to select the language - user is provided with two languages(English and French):\\
-\begin{lstlisting}[language=Python]
-def select_language_display(username):
-    print("Display Select Langauge:"+username)
-    root.img = PhotoImage(file='login.png')
-    Label(root,image=img,bg='white').place(x=50,y=50)
-    frame = Frame(root,width=350,height=350,bg="white")
-    frame.place(x=480,y=70)
-    heading = Label(frame, text='Select Language', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=80,y=5)
-    Button(frame,width=25,pady=7,text="English",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: English_Language(username)).place(x=25,y=107)
-    Button(frame,width=25,pady=7,text="French",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: French_Language(username)).place(x=30,y=170)
-\end{lstlisting}\\
+\end{enumerate}
 \asection{2}{Exception Handling}
 The below code will validate the correctness of Username and password
 \begin{lstlisting}[language=Python]

@@ -56,24 +56,33 @@
 \tableofcontents
 \setcounter{chapter}{5}
 \chapter{Problem 6}
-\asection{1}{High-level Solution Domain Model}
+\section{High-level Solution Domain Model}
 \begin{figure}[h!]
   \centering
    \includegraphics[width=180mm,height=130mm,scale=0.5]{D2-images/CRC_Card_Model.jpg}
   \caption{CRC Card Model}
 \end{figure}
 \chapter{Problem 7}
-\asection{1}{Low-level Solution Domain Model}
-\asection{1}{Sequence Diagrams}
+\section{Low-level Solution Domain Model - Sequence Diagrams}
+\subsection{iGO Sequence Diagram}
 \begin{figure}[h!]
   \centering
    \includegraphics[width=150mm,height=130mm,scale=0.5]{D2-images/iGoSeq.jpg}
   \caption{iGO Sequence Diagram}
 \end{figure}
+\newpage
+\subsection{Payment Sequence Diagram}
 \begin{figure}[h!]
   \centering
    \includegraphics[width=150mm,height=130mm,scale=0.5]{D2-images/Payment_Sequence.png}
   \caption{Payment Sequence Diagram}
+\end{figure}
+\newpage
+\subsection{Recharge Card}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=130mm,scale=0.5]{D2-images/Sequence_diagram_recharge_card.png}
+  \caption{Recharge Card Sequence Diagram}
 \end{figure}
 \chapter{Problem 8}
 \asection{1}{Python Code}
@@ -83,26 +92,26 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},
+    backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
     showstringspaces=false,
-    showtabs=false,
+    showtabs=false,                  
     tabsize=2
 }
 \lstset{style=mystyle}
 \begin{enumerate}
-\item \textbf{Select Language screen:} The below method will will allow the user to select the language - user is provided with two languages(English and French):\\
+\item \textbf{Select Language screen:} The first screen a user will see is "Language options" Since a large group of English and French-speaking people is expected to be the potential users. two languages(English and French) are displayed to choose between:\\
 \begin{lstlisting}[language=Python]
 def select_language_display(username):
     print("Display Select Langauge:"+username)
@@ -163,7 +172,7 @@ def Weekly_pass(username):
 \end{lstlisting}\\
 \item \textbf{Day Pass:} The below method will display the details of the Day pass:
 \begin{lstlisting}[language=Python]
-def Day_pass(username):
+def Day_pass(username):    
     print("Display Day Pass:"+username)
     root.img = PhotoImage(file='login.png')
     Label(root,image=img,bg='white').place(x=50,y=50)
@@ -190,7 +199,7 @@ def Weekend_pass(username):
     frame = Frame(root,width=400,height=550,bg="white")
     frame.place(x=440,y=70)
     heading = Label(frame, text='Weekend Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
-    heading.place(x=100,y=5)
+    heading.place(x=100,y=5)    
     if username == 'child' or username == 'senior citizens':
         button = Button(frame,width=25,pady=7,text="Make Payment: $4",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
     else:
@@ -224,7 +233,7 @@ def tickets_calculation(tickets,username):
     root.img = PhotoImage(file='login.png')
     Label(root,image=img,bg='white').place(x=50,y=50)
     frame = Frame(root,width=400,height=550,bg="white")
-    frame.place(x=480,y=70)
+    frame.place(x=480,y=70)    
     if username == 'child' or username == 'senior citizens':
         total_cost = float(no_tickets) * 1.99
         print(total_cost)
@@ -283,14 +292,14 @@ def signin():
         select_language_display(username)
     elif username == 'adult' and password_input == '1234':
         select_language_display(username)
-    elif (username != 'child' or username != 'adult') and password_input != '1234':
+    elif (username != 'child' or username != 'adult') and password_input != '1234': 
         messagebox.showerror("Invalid","invalid username and password")
-    elif password_input != '1234':
+    elif password_input != '1234': 
         messagebox.showerror("Invalid","invalid password")
-    elif username != 'child':
-        messagebox.showerror("Invalid","invalid username")
-    elif username != 'adult':
-        messagebox.showerror("Invalid","invalid username")
+    elif username != 'child': 
+        messagebox.showerror("Invalid","invalid username") 
+    elif username != 'adult': 
+        messagebox.showerror("Invalid","invalid username") 
 \end{lstlisting}
 \begin{figure}[h!]
   \centering

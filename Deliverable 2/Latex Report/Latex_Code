@@ -1,0 +1,604 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[margin=1.00in]{geometry}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{makeidx}
+\usepackage{listings} % For Code Formatting
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\newcommand{\asection}[2]{
+\setcounter{section}{#1}
+\addtocounter{section}{-1}
+\section{#2}
+}
+% Removes Chapter Names
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+% Required package
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{algorithm}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\begin{document}
+\begin{titlepage}
+   \begin{center}
+       \vspace*{-8ex}
+        \begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.5]{D2-images/logo.png} \\[1in]
+\end{figure}
+       \textbf{\large SOEN 6461: SOFTWARE DESIGN METHODOLOGIES}\\[0.3in]
+        \textbf{\large COURSE PROJECT - WINTER 2023} \\ [0.3in]
+        \textbf{\large Deliverable 2} \\[1.5in]
+        \textbf{\large PROJECT REPORT}\\[0.2in]
+        \textbf{\large iGO}\\[0.6in]
+       \vspace{1.0cm}
+       \textbf{\large Submitted To: Prof. Pankaj Kamthan}\\ [0.7in]
+        \textbf{By Team D,}
+        \begin{flushright}
+            \textbf{Yashwanth Gundlapally (40164633)}\\
+            \textbf{Apekshaba Gohil (40203058)}\\
+            \textbf{Pratik Gondaliya (40194062)}\\
+            \textbf{Carlos Garcia (40220038)}\\
+            \textbf{Ernesto Garsiya Melikhov (40039957)}\\
+            \textbf{Amro Elbahrawy (40221760)} \\ [0.5in]
+        \end{flushright}
+        \textbf{Github:}\\
+        \url{https://github.com/mrgps1999/SOEN6461_Ticket_Vending_Machine-TVM-}
+       \vfill
+      % \vspace{0.2cm}
+   \end{center}
+\end{titlepage}
+\tableofcontents
+\setcounter{chapter}{5}
+\chapter{Problem 6}
+\asection{1}{High-level Solution Domain Model}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=180mm,height=130mm,scale=0.5]{D2-images/CRC_Card_Model.jpg}
+  \caption{CRC Card Model}
+\end{figure}
+\chapter{Problem 7}
+\section{Low-level Solution Domain Model}
+\chapter{Problem 8}
+\asection{1}{Python Code}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\begin{lstlisting}[language=Python]
+
+from tkinter import *
+from tkinter import messagebox
+
+root=Tk()
+root.title('iGo')
+root.geometry('925x500+300+200')
+root.configure(bg="#fff")
+root.resizable(False,False)
+
+def printinvoice(username):
+    print("Display Print Invoice Option:"+username)
+    messagebox.showinfo("Printing Your Invoice", "Printing is under process!!")
+    # Insert code here to process the payment, e.g. call an API or perform necessary actions
+    messagebox.showinfo("Printing Done", "Printing has been successfully completed!")
+
+def printinvoice_fr(username):
+    print("Display Print Invoice Option:"+username)
+    messagebox.showinfo("Impression de votre facture", "L'impression est en cours de traitement !!")
+    # Insert code here to process the payment, e.g. call an API or perform necessary actions
+    messagebox.showinfo("Impression terminée", "L'impression a été effectuée avec succès !")
+
+def creditdebit(username):
+    print("Display Credit Debit Option:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Almost Done!!!!!', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    messagebox.showinfo("Payment Processing", "Payment is being processed...")
+    # Insert code here to process the payment, e.g. call an API or perform necessary actions
+    messagebox.showinfo("Payment Success", "Payment has been successfully processed!")
+    Button(frame,width=25,pady=7,text="Print Invoice",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice(username)).place(x=40,y=107)
+
+def creditdebit_fr(username):
+    print("Display Credit Debit Option:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Presque terminé!!!!!', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    messagebox.showinfo("Traitement du paiement", "Le paiement est en cours de traitement...")
+    # Insérer le code ici pour traiter le paiement, par exemple, appeler une API ou effectuer les actions nécessaires
+    messagebox.showinfo("Paiement réussi", "Le paiement a été traité avec succès!")
+    Button(frame,width=25,pady=7,text="Imprimer la facture",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice_fr(username)).place(x=40,y=107)
+
+def select_payment_option(username):
+    print("Display Payment Option:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Payment Options', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    Button(frame,width=25,pady=7,text="Credit/Debit Card",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: creditdebit(username)).place(x=40,y=107)
+    Button(frame,width=25,pady=7,text="Cash",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00").place(x=40,y=170)
+
+def select_payment_option_fr(username):
+    print("Display Payment Option:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Options de Paiement', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    Button(frame,width=25,pady=7,text="Carte de crédit/débit",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: creditdebit_fr(username)).place(x=40,y=107)
+    Button(frame,width=25,pady=7,text="Espèces",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00").place(x=40,y=170)
+
+def on_enter(e):
+    tickets.delete(0,'end')
+    tickets.icursor(0)
+
+def on_leave(e):
+    name = tickets.get()
+    if name =='':
+        tickets.insert(0,'No. of Tickets')
+
+def tickets_calculation(tickets,username):
+    print("Monthly Plan:"+username)
+    no_tickets = tickets.get()
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    if username == 'child' or username == 'senior citizens':
+        total_cost = float(no_tickets) * 1.99
+        print(total_cost)
+        button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+    else:
+        total_cost = float(no_tickets) * 2.99
+        button = Button(frame,width=25,pady=7,text="Make Payment of "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+        print(total_cost)
+
+def tickets_calculation_fr(tickets,username):
+    print("Monthly Plan:"+username)
+    no_tickets = tickets.get()
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    if username == 'child' or username == 'senior citizens':
+        total_cost = float(no_tickets) * 1.99
+        print(total_cost)
+        button = Button(frame,width=25,pady=7,text="Effectuer le paiement de "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+    else:
+        total_cost = float(no_tickets) * 2.99
+        button = Button(frame,width=25,pady=7,text="Effectuer le paiement de "+str(total_cost),bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+        print(total_cost)
+
+def Monthly_pass(username):
+    print("Display Monthly Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='Monthly Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    if username == 'child' or username == 'senior citizens':
+        button = Button(frame,width=25,pady=7,text="Make Payment: $50",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+    else:
+        button = Button(frame,width=25,pady=7,text="Make Payment: $60",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+
+def Monthly_pass_fr(username):
+    print("Display Monthly Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='Monthly Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    if username == 'child' or username == 'senior citizens':
+        button = Button(frame,width=25,pady=7,text="Paiement: 50 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+    else:
+        button = Button(frame,width=25,pady=7,text="Paiement: 60 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+
+def Weekly_pass(username):
+    print("Display Weekly Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Weekly Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    if username == 'child' or username == 'senior citizens':
+        button = Button(frame,width=25,pady=7,text="Make Payment: $10",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+    else:
+        button = Button(frame,width=25,pady=7,text="Make Payment: $15",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+
+def Weekly_pass_fr(username):
+    print("Display Weekly Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Pass Hebdomadaire', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    if username == 'child' or username == 'senior citizens':
+        button = Button(frame,width=25,pady=7,text="Paiement: $10",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+    else:
+        button = Button(frame,width=25,pady=7,text="Paiement: $15",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+
+def Day_pass(username):
+    print("Display Day Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='Day Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    No_ticket = Label(frame, text = "No. of Tickets",fg="#57a1f8",font=('Microsoft YaHei UI Light',15,'bold'))
+    No_ticket.place(x = 30,y = 70)
+    tickets = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+    tickets.place(x=150,y=73)
+    tickets.insert(0,'')
+    tickets.bind('<FocusIn>',on_enter)
+    tickets.bind('<FocusOut>',on_leave)
+    Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
+    button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
+
+def Day_pass_fr(username):
+    print("Display Day Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='Pass Jour', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    No_ticket = Label(frame, text = "Nombre de billets",fg="#57a1f8",font=('Microsoft YaHei UI Light',15,'bold'))
+    No_ticket.place(x = 30,y = 70)
+    tickets = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+    tickets.place(x=150,y=73)
+    tickets.insert(0,'')
+    tickets.bind('<FocusIn>',on_enter)
+    tickets.bind('<FocusOut>',on_leave)
+    Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
+    button = Button(frame,width=25,pady=7,text="Procéder au paiement",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation_fr(tickets,username)).place(x=35,y=120)
+
+def Weekend_pass(username):
+    print("Display Weekend Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Weekend Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    if username == 'child' or username == 'senior citizens':
+        button = Button(frame,width=25,pady=7,text="Make Payment: $4",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+    else:
+        button = Button(frame,width=25,pady=7,text="Make Payment: $5",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option(username)).place(x=35,y=120)
+
+def Weekend_pass_fr(username):
+    print("Display Weekend Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='passe week-end', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    if username == 'child' or username == 'senior citizens':
+        button = Button(frame,width=25,pady=7,text="Effectuer le paiement : 4 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+    else:
+        button = Button(frame,width=25,pady=7,text="Effectuer le paiement : 5 $",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: select_payment_option_fr(username)).place(x=35,y=120)
+
+def One_way_pass(username):
+    print("Display One Day Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='One way Pass', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    No_ticket = Label(frame, text = "No. of Tickets",fg="#57a1f8",font=('Microsoft YaHei UI Light',15,'bold'))
+    No_ticket.place(x = 30,y = 70)
+    tickets = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+    tickets.place(x=150,y=73)
+    tickets.insert(0,'')
+    tickets.bind('<FocusIn>',on_enter)
+    tickets.bind('<FocusOut>',on_leave)
+    Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
+    button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
+
+def One_way_pass_fr(username):
+    print("Display One Day Pass:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='Pass Aller Simple', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=100,y=5)
+    No_ticket = Label(frame, text = "Nombre de billets",fg="#57a1f8",font=('Microsoft YaHei UI Light',15,'bold'))
+    No_ticket.place(x = 30,y = 70)
+    tickets = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+    tickets.place(x=150,y=73)
+    tickets.insert(0,'')
+    tickets.bind('<FocusIn>',on_enter)
+    tickets.bind('<FocusOut>',on_leave)
+    Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
+    button = Button(frame,width=25,pady=7,text="Procéder au paiement",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation_fr(tickets,username)).place(x=35,y=120)
+
+def Select_Plans(username):
+    print("Display Select Plans:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=450,y=70)
+    heading = Label(frame, text='Select Language', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=70,y=5)
+    Button(frame,width=25,pady=7,text="Monthly Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Monthly_pass(username)).place(x=25,y=107)
+    Button(frame,width=25,pady=7,text="Weekly Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekly_pass(username)).place(x=30,y=170)
+    Button(frame,width=25,pady=7,text="Day Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Day_pass(username)).place(x=35,y=233)
+    Button(frame,width=25,pady=7,text="Weekend Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass(username)).place(x=40,y=296)
+    Button(frame,width=25,pady=7,text="One Way Ticket",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass(username)).place(x=45,y=359)
+
+def Select_Plans_fr(username):
+    print("Display Select Plans:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=400,height=550,bg="white")
+    frame.place(x=450,y=70)
+    heading = Label(frame, text='Sélectionnez la langue', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=70,y=5)
+    Button(frame,width=25,pady=7,text="Pass mensuel",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Monthly_pass_fr(username)).place(x=25,y=107)
+    Button(frame,width=25,pady=7,text="Pass hebdomadaire",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekly_pass_fr(username)).place(x=30,y=170)
+    Button(frame,width=25,pady=7,text="Pass journalier",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Day_pass_fr(username)).place(x=35,y=233)
+    Button(frame,width=25,pady=7,text="Pass week-end",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass_fr(username)).place(x=40,y=296)
+    Button(frame,width=25,pady=7,text="Billet aller simple",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass_fr(username)).place(x=45,y=359)
+
+def recharge_buy_option(username):
+    print("Display Recharge Buy Option:"+username)
+    Select_Plans(username);
+
+def recharge_buy_option_fr(username):
+    print("Display Recharge Buy Option:"+username)
+    Select_Plans_fr(username);
+
+def English_Language(username):
+    print("Display English:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=450,height=350,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Select From Below Option', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=50,y=5)
+    Button(frame,width=25,pady=7,text="Recharge Card",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: recharge_buy_option(username)).place(x=40,y=107)
+    Button(frame,width=25,pady=7,text="Buy Ticket",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: recharge_buy_option(username)).place(x=40,y=170)
+
+def French_Language(username):
+    print("Display French:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=450,height=350,bg="white")
+    frame.place(x=440,y=70)
+    heading = Label(frame, text='Sélectionnez loption ci-dessous', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=50,y=5)
+    Button(frame,width=25,pady=7,text="Carte de recharge",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: recharge_buy_option_fr(username)).place(x=40,y=107)
+    Button(frame,width=25,pady=7,text="Acheter un billet",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: recharge_buy_option_fr(username)).place(x=40,y=170)
+
+def select_language_display(username):
+    print("Display Select Langauge:"+username)
+    root.img = PhotoImage(file='login.png')
+    Label(root,image=img,bg='white').place(x=50,y=50)
+    frame = Frame(root,width=350,height=350,bg="white")
+    frame.place(x=480,y=70)
+    heading = Label(frame, text='Select Language', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+    heading.place(x=80,y=5)
+    Button(frame,width=25,pady=7,text="English",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: English_Language(username)).place(x=25,y=107)
+    Button(frame,width=25,pady=7,text="French",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: French_Language(username)).place(x=30,y=170)
+
+def signin():
+    username = user.get()
+    password_input = password.get()
+#     child
+    if username == 'child' and password_input == '1234':
+#         Select Language
+        select_language_display(username)
+    elif username == 'adult' and password_input == '1234':
+        select_language_display(username)
+    elif (username != 'child' or username != 'adult') and password_input != '1234':
+        messagebox.showerror("Invalid","invalid username and password")
+    elif password_input != '1234':
+        messagebox.showerror("Invalid","invalid password")
+    elif username != 'child':
+        messagebox.showerror("Invalid","invalid username")
+    elif username != 'adult':
+        messagebox.showerror("Invalid","invalid username")
+#         Adult
+img = PhotoImage(file='login.png')
+Label(root,image=img,bg='white').place(x=50,y=50)
+frame = Frame(root,width=350,height=350,bg="white")
+frame.place(x=480,y=70)
+heading = Label(frame, text='Sign in', fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light',23,'bold'))
+heading.place(x=100,y=5)
+
+def on_enter(e):
+    user.delete(0,'end')
+
+def on_leave(e):
+    name = user.get()
+    if name=='':
+        user.insert(0,'Username')
+user = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+user.place(x=30,y=80)
+user.insert(0,'Username')
+user.bind('<FocusIn>',on_enter)
+user.bind('<FocusOut>',on_leave)
+Frame(frame,width=295,height=2,bg='black').place(x=25,y=107)
+
+def on_enter(e):
+    password.delete(0,'end')
+
+def on_leave(e):
+    name = password.get()
+    if name=='':
+        password.insert(0,'Password')
+password = Entry(frame, width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+password.place(x=30,y=150)
+password.insert(0,'Password')
+password.bind('<FocusIn>',on_enter)
+password.bind('<FocusOut>',on_leave)
+Frame(frame,width=295,height=2,bg='#000000').place(x=25,y=177)
+Button(frame,width=25,pady=7,text="Sign in",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=signin).place(x=35,y=204)
+label=Label(frame,text="Don't have an account?",fg="black",bg='white',font=('Microsoft YaHei UI Light',12))
+label.place(x=75,y=270)
+sign_up = Button(frame,width=6,text='Sign up',border=0,bg='white',cursor='hand2',fg='#57a1f8')
+sign_up.place(x=215,y=270)
+
+root.mainloop()
+\end{lstlisting}
+
+\chapter{Problem 9}
+\asection{1}{Screenshots}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/2.jpg}
+  \caption{Main Page of the Application}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/2.jpg}
+  \caption{Validation for Username and Password}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/3.jpg}
+  \caption{Language Selection screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/4.jpg}
+  \caption{iGo - Menu screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/5.jpg}
+  \caption{iGO - User Pass Selection screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/6.jpg}
+  \caption{iGO - Monthly Pass Checkout screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/7.jpg}
+  \caption{iGO - Payment screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/8.jpg}
+  \caption{iGO - Payment Processing screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/9.jpg}
+  \caption{iGO - Payment Successful screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/10.jpg}
+  \caption{iGO - Print Invoice Screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/11.jpg}
+  \caption{iGO - Print Successful screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/12.jpg}
+  \caption{iGO - Weekly Pass Checkout screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/13.jpg}
+  \caption{iGO - Day Pass Checkout screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/14.jpg}
+  \caption{iGO - Day Pass Payment screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/15.jpg}
+  \caption{iGO - Weekend Pass Checkout screen}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/16.jpg}
+  \caption{iGO - One-way Ticket Checkout screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/17.jpg}
+  \caption{iGo - French Version}
+\end{figure}
+
+
+\chapter{References}
+\begin{enumerate}
+  \item \url{http://www.stm.info/en}
+  \item PANKAJ KAMTHAN (2023) “Understanding Context"
+  \item PANKAJ KAMTHAN (2023) “Introduction to Interviews”
+  \item PANKAJ KAMTHAN (2023) “Introduction To Domain Modeling” - Section 14, 15 ,16.
+  \item PANKAJ KAMTHAN (2023) “Introduction To Use Case Modeling” - Section 11, 12.
+  \item PANKAJ KAMTHAN (2023) “Negative Use Case Modeling”  - Section 8
+  \item \url{https://www.lucidchart.com/pages/uml-activity-diagram}
+  \item Carte OPUS. To obtain your photo OPUS card. 2023. \url{http://www.carteopus.info/}.
+  \item Code Formatting in LaTeX \url{https://www.overleaf.com/learn/latex/Code_listing}
+\end{enumerate}
+\end{document}

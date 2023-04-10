@@ -59,7 +59,7 @@
 \section{High-level Solution Domain Model}
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=180mm,height=130mm,scale=0.5]{D2-images/CRC_Card_Model.jpg}
+    \includegraphics[width=180mm,height=130mm,scale=0.5]{D2-images/CRC_Card_Model.jpg}
   \caption{CRC Card Model}
 \end{figure}
 \chapter{Problem 7}
@@ -78,6 +78,13 @@
   \caption{Payment Sequence Diagram}
 \end{figure}
 \newpage
+\subsection{Make Payment in Cash}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=180mm,scale=0.5]{D2-images/MakePaymentCash.jpeg}
+  \caption{Payment in cash Sequence Diagram}
+\end{figure}
+\newpage
 \subsection{Recharge Card}
 \begin{figure}[h!]
   \centering
@@ -89,8 +96,9 @@
 \begin{figure}[h!]
   \centering
    \includegraphics[width=150mm,height=180mm,scale=0.5]{D2-images/RechargeCardOnline.jpg}
-  \caption{Recharge Card Using online mode Sequence Diagram}
+  \caption{Recharge Card Using Online mode Sequence Diagram}
 \end{figure}
+
 \chapter{Problem 8}
 \asection{1}{Python Code}
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -118,7 +126,9 @@
 }
 \lstset{style=mystyle}
 \begin{enumerate}
-\item \textbf{Select Language screen:} The first screen a user will see as soon as they sign up is "Language options" Since a large group of English and French-speaking people are expected to be the potential users. two languages(English and French) are displayed to choose between:\\
+\item	In iGo implementation user can be of two types one is Child or Senior Citizens and another one is adult based on types of user fare will be decided. For demonstration purpose we gave access of iGo system to two types of users which are adult and child. 
+
+\item \textbf{Select Language screen:} This is the first screen a user will see as soon as all things go as per the requirement of the iGo system, then the user will have two options in front of them which are English and French "Language options", Since a large group of English and French-speaking people are expected to be the potential users. two languages(English and French) are displayed to choose between:\\
 \begin{lstlisting}[language=Python]
 def select_language_display(username):
     print("Display Select Langauge:"+username)
@@ -131,7 +141,9 @@ def select_language_display(username):
     Button(frame,width=25,pady=7,text="English",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: English_Language(username)).place(x=25,y=107)
     Button(frame,width=25,pady=7,text="French",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: French_Language(username)).place(x=30,y=170)
 \end{lstlisting}
-\item \textbf{iGO Menu:} The method shown below will display the iGO passes and tickets menu with prices distributed based on the age and priorities:\\
+\item \textbf{iGO Menu:}After selecting English or French user will have two options which are Recharge card and Buy Ticket.\\\\
+After selecting Recharge Card or Buy Ticket user will have a set of options in iGo. These are Monthly Passes, Weekly Passes, Day Pass/Ticket, Weekend Pass, and One-way tickets. If the user will select French, then all options from now onwards will be in French only.\\\\
+
 \begin{lstlisting}[language=Python]
 def Select_Plans(username):
     print("Display Select Plans:"+username)
@@ -147,6 +159,7 @@ def Select_Plans(username):
     Button(frame,width=25,pady=7,text="Weekend Pass",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: Weekend_pass(username)).place(x=40,y=296)
     Button(frame,width=25,pady=7,text="One Way Ticket",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: One_way_pass(username)).place(x=45,y=359)
 \end{lstlisting}
+- After clicking on any of the above options user will have specific iGo layout based on the option which user is selecting. Apart from, Day Pass/Ticket and One way Ticket option user will have button of make payment directly with the price which user needs to pay for selecting any of the options from Monthly, Weekly or Weekend individually as per user’s selection. But when it comes to Day Pass/Ticket and one  One way ticket then user needs to enter no of tickets or pass which he needs. So, here it’s possible that user might enter nothing and try to press button named “Procced for Payment” in this case user will have popup showing message called “invalid input”. If user click “ok” button which will be there in popup then user will be redirected to selection options display where user will have again all the option which has been discussed earlier. Here we have handled exception as well so iGo might not get crashed.\\
 \item \textbf{Monthly Pass:} The below method will display the details of the monthly pass:\\
 \begin{lstlisting}[language=Python]
 def Monthly_pass(username):
@@ -232,6 +245,7 @@ def One_way_pass(username):
     Frame(frame,width=200,height=1.5,bg='black').place(x=140,y=100)
     button = Button(frame,width=25,pady=7,text="Proceed For Payment",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: tickets_calculation(tickets,username)).place(x=35,y=120)
 \end{lstlisting}
+-	For the two options which are Day Pass/Ticket and One way ticket if user enter correct input and for the rest of the other option after selecting “Make Payment button user will have two options which are “Payment Options” named as “Credit card/ Debit card” and “Cash \\
 \item \textbf{Checkout screen:} The below methods will calculate the price for the selected tickets/pass and then display on the screen\\
 \begin{lstlisting}[language=Python]
 def tickets_calculation(tickets,username):
@@ -265,7 +279,8 @@ def creditdebit(username):
     messagebox.showinfo("Payment Success", "Payment has been successfully processed!")
     Button(frame,width=25,pady=7,text="Print Invoice",bg='#ff8c00',fg='#57a1f8',font=('Microsoft YaHei UI Light',15,'bold','italic'),border=0,highlightbackground="#ff8c00",command=lambda: printinvoice(username)).place(x=40,y=107)
 \end{lstlisting}
-\item \textbf{Select payment screen:} The below method will display the payment screen\\
+\item \textbf{Select payment screen:} The below method will display the payment screen\\\\
+-	After selecting “Credit card/ Debit card” option user must enter his Debit/Credit card number. Here, if user will enter nothing and press “Proceed for Payment” then user will get popup like “invalid Input”. Here, we handled the exception. So, if user enter incorrect card number, then system needs to stop user to make payment. So, we have been considered security concerns for payment as well.  After entering correct card number user will get two popups like “Payment is being processed...” and after that “Payment has been successfully processed!”. At the end user can also print invoice by clicking on “Print Invoice” button.\\\\
 \begin{lstlisting}[language=Python]
 def select_payment_option(username):
     print("Display Payment Option:"+username)
@@ -287,8 +302,11 @@ def printinvoice(username):
     messagebox.showinfo("Printing Done", "Printing has been successfully completed!")
 \end{lstlisting}
 \end{enumerate}
+\newpage
 \asection{2}{Exception Handling}
-The below code will validate the correctness of the Username and password, as shown here if the username and password is not entered or entered wrong than the user will be prompted by "Invalid Username and Password"\\
+\begin{enumerate}
+    \item -	We handled several exceptions as well and kept several validations throughout the iGo system for security purpose. So, if user tries to press Login button without entering id which is “child or adult” in this case and password is “1234” then iGo will handle this exception by showing popup message which is “invalid username and password” or “invalid username” or “invalid password” based on the credentials enter by user.\\
+\end{enumerate}
 \begin{lstlisting}[language=Python]
 def signin():
     username = user.get()
@@ -312,6 +330,16 @@ def signin():
   \centering
    \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/2.jpg}
   \caption{Validation for Username and Password}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/err2.jpg}
+  \caption{Debit/Credit Card Validation screen}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=70mm,scale=0.5]{D2-images/err4.jpg}
+  \caption{User Input Validation}
 \end{figure}
 \chapter{Problem 9}
 \asection{1}{Screenshots}

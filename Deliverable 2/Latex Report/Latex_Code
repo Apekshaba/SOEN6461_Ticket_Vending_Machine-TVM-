@@ -74,6 +74,13 @@ The following figure presents the CRC Card model for iGo:
   \caption{CRC Card Model}
 \end{figure}
 \chapter{Problem 7}
+\section{Low-level Solution Domain Model- Class Diagram}
+\subsection{iGO Class Diagram}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=130mm,scale=0.5]{D2-images/ClassDiagram.png}
+  \caption{iGO Class Diagram}
+\end{figure}
 \section{Low-level Solution Domain Model - Sequence Diagrams}
 \subsection{iGO Sequence Diagram}
 \begin{figure}[h!]

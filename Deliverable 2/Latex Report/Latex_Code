@@ -57,6 +57,17 @@
 \setcounter{chapter}{5}
 \chapter{Problem 6}
 \section{High-level Solution Domain Model}
+
+Since the project’s design follows Object-Oriented principles, it was decided that the solution domain model for iGo should follow Responsibility-Driven Design (RDD) principles. Based on that, the model was presented in the form of Class-Responsibility-Collaborator (CRC) Card model.\\
+The Use Case Diagram conducted in \textbf{Deliverable 1} was used as reference, where each use case was analyzed in terms of possible scenarios. One or more classes, along with their responsibilities and collaborator classes, were considered for each use case. Related classes were linked using directed lines, resulting in a cyclic directed CRC model that acts as a high-level solution domain model for the system. This will be used as a reference to implement a fully-structured Class Diagram.\\
+ The main class is \textbf{UI}, which acts as a controller that processes user input commands to the models and database. Other classes can be categorized into:
+\begin{itemize}
+  \item \textbf{Billing/Finance}: Responsible for handling payment and transaction processes. The included classes are \textbf{TransactionController, Payment, Transaction, Invoice, PaymentPartner}.
+  \item \textbf{Users}: The users of the system. Namely \textbf{Conductor and Commuter}. Commuter includes both registered and unregistered commuters.
+  \item \textbf{Business}: Which includes the business logic of the system, including tickets, fares, rechargeable cards, and TVM. Classes are \textbf{iGoCard,  Ticket,Fare, TVM}.
+\end{itemize}
+The following figure presents the CRC Card model for iGo:
+
 \begin{figure}[h!]
   \centering
     \includegraphics[width=180mm,height=130mm,scale=0.5]{D2-images/CRC_Card_Model.jpg}
@@ -97,6 +108,13 @@
   \centering
    \includegraphics[width=150mm,height=180mm,scale=0.5]{D2-images/RechargeCardOnline.jpg}
   \caption{Recharge Card Using Online mode Sequence Diagram}
+\end{figure}
+\newpage
+\subsection{Purchase Ticket}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=150mm,height=180mm,scale=0.5]{D2-images/PurchaseTicket.jpeg}
+  \caption{Purchase Ticket Sequence Diagram}
 \end{figure}
 
 \chapter{Problem 8}

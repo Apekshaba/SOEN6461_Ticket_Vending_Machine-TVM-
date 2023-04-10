@@ -102,3 +102,44 @@ package finance{
     +Payment : createPaymentDetails(User, Fare, PaymentPartner, String)
     +Transaction : createTransaction(int, Date, Payment) 
   }
+
+
+  
+  class Invoice{
+    -int invoiceId
+    -Transaction transaction
+    -Timestamp transactionDate
+    +Transaction: getTransaction()
+  }
+  
+
+  
+  class PaymentPartner {
+    -String name
+    -String address
+    -Date startedAt
+    -Contract contract
+    +void : validatePaymentDetails(Payment)
+    +void : validate()
+    +void : reject()
+  }
+  
+
+}
+
+User <|-- Conductor
+User <|-- Registered_Commuter
+Ticket "0...*" <-- "1" Fare
+iGoCard "0...*" <-- "1" Fare
+Transaction "0...*" -- "1" iGoCard: Belongs to >
+Transaction "0...*" -- "1" Ticket: Belongs to >
+Transaction "1..*" - "1..*" Payment
+TVM --> User
+PaymentPartner --> "1..*" Payment : Manages
+iGoCard "1" --o "1" Registered_Commuter
+TransactionController --> Transaction: Creates
+TransactionController --> Payment: Creates
+TransactionController --> BillingProcessor
+PurchaseView --> TransactionController
+BillingProcessor --> Invoice: Creates
+@enduml

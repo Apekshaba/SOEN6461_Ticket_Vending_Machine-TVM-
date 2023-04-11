@@ -367,7 +367,7 @@ def signin():
   \caption{User Input Validation}
 \end{figure}
 \chapter{Problem 9}
-\asection{1}{Positive and Negative potential Uses of the application we developed:}
+\asection{1}{Positive and Negative potential Uses of iGO:}
 \textbf{Positive Potential uses of iGO:}
 \begin{enumerate}
      \item \textbf{Convenience:} iGO can provide users with a convenient way to purchase tickets for events, shows, and concerts, without having to stand in long lines or visit a physical box office.

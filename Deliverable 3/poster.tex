@@ -1,0 +1,269 @@
+\documentclass[final]{beamer}
+\usepackage{xcolor}
+\definecolor{lightblue}{RGB}{173,216,230}
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+\usetheme{confposter} % Use the confposter theme supplied with this template
+\setbeamercolor{background canvas}{bg=lightblue}
+\setbeamercolor{block title}{fg=green,bg=orchid} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=lightgrey} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=orchid,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+\title{iGO : An online Ticket Vending Machine} 
+
+\author{Team D: Yashwanth Gundlapally, Apekshaba Gohil, Pratik Gondaliya, Carlos Garcia, Ernesto Garsiya Melikhov, Amro Elbahrawy} % Author(s)
+\institute{SOEN 6461 - SOFTWARE DESIGN METHODOLOGIES - WINTER 2023} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+\setbeamercolor{block title}{fg=dblue,bg=white} % Change the block title color
+\begin{block}{Collaboration patterns}
+\begin{alertblock}{ }
+\begin{itemize}
+\item The main collaboration patterns that were used in the project were \textbf{group meetings} and group \textbf{brainstorming sessions}.
+\item To make everyone notified of any changes we collaborated on \textbf{Google Docs} and also maintained our work updated on \textbf{GitHub.}
+\item Meetings were conducted at the beginning of each deliverable \textbf{to discuss the deliverable problems, solutions, and confusions}.
+
+\item During the work on iGo project we followed Parallel Collaboration. 
+
+
+\end{itemize}
+
+\end{alertblock}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=170mm,height=130mm,scale=0.5]{logos/multi-agent-system.png}
+\end{figure}
+\end{block}
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\setbeamercolor{block title}{fg=Peach,bg=white} % Change the block title color
+\begin{block}{Critical Decisions}
+\begin{alertblock} { }
+\begin{itemize}
+    \item \textbf{Designing the class diagram and domain model:}to determine the system's structure and component's interaction.
+    \item \textbf{Coordinating communication and collaboration:} Effective communication and collaboration was a key to smooth work over the project tenure.
+    \item \textbf{Choosing the right diagramming tool:} as it effectively visualized and communicated the system design, and ability to generate high-quality output.
+    \item \textbf{Choosing the right technology stack:}to avoid poor performance, security vulnerabilities, and maintenance and scalability issues.
+\end{itemize}
+\end{alertblock}
+
+\end{block}
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column
+
+\begin{column}{\onecolwid}\vspace{-.6in} % The first column within column 2 (column 2.1)
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS
+%----------------------------------------------------------------------------------------
+\setbeamercolor{block title}{fg=ForestGreen,bg=white} % Change the block title color
+\begin{block}{Reuse Potential}
+
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=170mm,height=130mm,scale=0.5]{logos/recycle-icon-png-4220.png}
+\end{figure}
+\begin{alertblock} { }
+    \begin{itemize}
+        \item \textbf{Total Reuse:} An iGo smart card system can be relocated to a new location to provide contactless payment services.
+        \item \textbf{Partial Reuse:} RFID chips or readers may be removed and used in other applications.
+        \item \textbf{Upcycling:} The smart cards used can also be upcycled to create new products with different functions or designs.
+        \item \textbf{Recycling:} Cannot be reused in any form, it can still be recycled to recover valuable materials.
+    \end{itemize}
+\end{alertblock}
+\end{block}
+
+\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+\begin{block}{Limitations}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=80mm,scale=0.5]{logos/restriction.png}
+\end{figure}
+\begin{alertblock} { }
+    \begin{itemize}
+        \item \textbf{Limited Design Options of Tkinter}
+        \item \textbf{Limited Platform Support:} includes only desktop applications.
+        \item \textbf{Limited Graphics Capabilities}
+        \item \textbf{Performance: } May not be a good fit for real-time applications.
+        \item \textbf{Lack of Compatibility:} Tkinter may not be compatible with other Python GUI libraries.
+    \end{itemize}
+\end{alertblock}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.1
+
+\begin{column}{\onecolwid}\vspace{-.6in} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+%	METHODS
+%----------------------------------------------------------------------------------------
+\setbeamercolor{block title}{fg=Brown,bg=white} % Change the block title color
+\begin{block}{Lessons Learnt}
+    
+\begin{alertblock}{ }
+\begin{itemize}
+    \item \textbf{Communication and collaboration are key}: Effective communication and collaboration are essential for the success of any software development project. 
+    \item \textbf{Prioritize the most important features:}With limited time and resources, it's critical to focus on the most important features of a software system. The team identified the top use cases and prioritized them based on their impact on the user experience.
+    \item \textbf{Use the right tools:}Choosing appropriate tools for the job and being open to new ones is essential, as demonstrated by the team's effective use of PlantUML and LaTeX for diagramming and report writing.
+    \item \textbf{Iterative is Key:}Iterative refinement of the design based on feedback and testing is key to improving the overall quality of the software development process.
+\end{itemize}
+\end{alertblock}
+\end{block}
+
+\setbeamercolor{block title}{fg=Black,bg=white} % Change the block title color
+\begin{block}{Insulated Implementation}
+    \begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=80mm,scale=0.5]{logos/process.png}
+\end{figure}
+\begin{alertblock}{ }
+\begin{itemize}
+    \item \textbf{Modular Approach.}
+    \item \textbf{Well-defined interfaces interacting without loss of privacy.}
+    \item \textbf{MVC Design pattern to isolate GUI, Controller and Database for easy updation.}
+    \item \textbf{Module testing.}
+    \item \textbf{Use of versioning control tool such as Git.}
+\end{itemize}
+\end{alertblock}
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
+
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
+
+
+
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+\setbeamercolor{block title}{fg=JungleGreen,bg=white} % Change the block title color
+\begin{block}{Scope in different Programming Language:}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=100mm,height=80mm,scale=0.5]{logos/coding.png}
+\end{figure}
+\begin{alertblock}{ }
+    
+\end{alertblock}
+\end{block}
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+
+\begin{block}{References}
+
+\begin{alertblock} { }
+    \begin{itemize}
+        \item PANKAJ KAMTHAN (2023) “Introduction To Domain Modeling” - Section 14,15,16.
+        \item PANKAJ KAMTHAN (2023) “Introduction To Use Case Modeling” - Section 11, 12.
+        \item \url{http://www.stm.info/en}
+    \end{itemize}
+
+\end{alertblock}
+\end{block}
+\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+
+\begin{block}{Acknowledgements}
+\begin{alertblock}{ }
+    \begin{itemize}
+        \item We would like to express our deepest gratitude to Prof Pankaj Kamthan and TA's of this course, Thank you for your unwavering commitment to your students, and for inspiring us to strive for excellence in all our academic pursuits.\\
+    \end{itemize}
+\end{alertblock}
+
+\end{block}
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}
